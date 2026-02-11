@@ -201,7 +201,14 @@ The file CONTRIBUTORS.md does not exist
 ```
 **The output**
 
-('Contributors')
+-Contributors
 
 -Rahma (tested successfully!)
 
+**Submit the changes**
+```bash
+#Submit the changes:
+git add CONTRIBUTORS.md
+git commit -m "docs: add Rahma to contributors"
+git push origin main
+```

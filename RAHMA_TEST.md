@@ -84,8 +84,11 @@ gh auth login
 ```
 Answer the following questions: 
 ? Where do you use GitHub? GitHub.com
+
 ? What is your preferred protocol for Git operations on this host? HTTPS
+
 ? Authenticate Git with your GitHub credentials? Yes
+
 ? How would you like to authenticate GitHub CLI? Login with a web browser
 
 **! First copy your one-time code: CFEF-A1D5 (yours will be different)**

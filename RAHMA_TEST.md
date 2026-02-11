@@ -209,6 +209,24 @@ The file CONTRIBUTORS.md does not exist
 ```bash
 #Submit the changes:
 git add CONTRIBUTORS.md
-git commit -m "docs: add Rahma to contributors"
+git commit -m "docs: add Rahma (your name) to contributors"
 git push origin main
 ```
+
+### Create a testing file, change my name to your name
+``` bash
+echo "# Rahma's Practice File" > RAHMA_TEST.md
+cat RAHMA_TEST.md
+```
+# Add file to GitHub
+```bash
+git add RAHMA_TEST.md
+# commit to command
+git commit -m "add Rahma's practice file"
+```
+**The Output**
+[main 3286cbf] add Rahma's practice file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 RAHMA_TEST.md
+
+ 

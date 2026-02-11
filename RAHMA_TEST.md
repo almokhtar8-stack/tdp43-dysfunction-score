@@ -73,8 +73,7 @@ It should be similar to this path
 ```
 ### Step 2: Install GitHub CLI & Login
 
-# Install GitHub CLI
-Now I can Install Github
+**Now I can Install Github (AGAIN)**
 ```bash
 brew install gh
 ```

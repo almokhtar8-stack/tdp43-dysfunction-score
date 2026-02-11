@@ -246,5 +246,22 @@ git pull origin main
 
 **This downloads any work your teammates pushed.**
 
+#### I chose Option B: Create New File
+```bash
+# Create new script, in the file (01_quality_control), file name (Rahma_script), it's an R file
+nano  nano scripts/01_quality_control/Rahma_script.R
+# add the file to github
+git add scripts/01_quality_control/Rahma_script.R
+#commit the change
+git commit -m "feat: add quality control script for Rahma"
+# push to github
+git push origin main
+
+
+# Write your code
+# Press Ctrl+O to save
+# Press Enter
+# Press Ctrl+X to exit
+```
 
  

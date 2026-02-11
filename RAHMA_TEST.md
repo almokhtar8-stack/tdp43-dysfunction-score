@@ -229,4 +229,22 @@ git commit -m "add Rahma's practice file"
  1 file changed, 1 insertion(+)
  create mode 100644 RAHMA_TEST.md
 
+### Make sure the changes are saved and uploaded to the GitHub website
+
+```bash
+git push origin main
+```
+
+### BEFORE You Start Working
+```bash
+# 1. Navigate to project folder
+cd ~/Desktop/tdp43-dysfunction-score
+
+# 2. Get latest changes from team
+git pull origin main
+```
+
+**This downloads any work your teammates pushed.**
+
+
  

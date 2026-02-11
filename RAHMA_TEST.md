@@ -1,16 +1,30 @@
 # Rahma's Practice File
 ## This document will show the commands, errors, and solutions 
 
-1- Switch user into rorym (my username)
+First, switch user into rorym (my username)
 
 ```bash
-wsl -u rorym
+wsl -u rorym (replace with your username)
 ```
 Now my terminal is switched to 
 (base) rorym@Rahma:/mnt/c/Users/rorym$ 
 
-2- git --version
+### Step 1: Check if You Have Git
+Start setting up GitHub access
+```bash
+git --version
 git version 2.43.0
+```
+### Step 2: Install GitHub CLI & Login
+```bash
+# Install GitHub CLI
+brew install gh
+
+# Login to GitHub
+gh auth login
+```
+
+
 (base) rorym@Rahma:/mnt/c/Users/rorym$ # Install GitHub CLI
 brew install gh
 Command 'brew' not found, did you mean:

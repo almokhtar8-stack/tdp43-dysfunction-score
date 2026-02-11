@@ -71,6 +71,12 @@ It should be similar to this path
  #We recommend that you install GCC:
     brew install gcc
 ```
+### Step 2: Install GitHub CLI & Login
 
+# Install GitHub CLI
+Now I can Install Github
+```bash
+brew install gh
+```
 
 

@@ -102,10 +102,18 @@ Answer the following questions:
 ttps://github.com/login/device
 
 **I then copied and pasted the URL in my browser manually and I was asked to write the one-time code**
-#### The message I got after entering the one-time code
+**The message I got after entering the one-time code**
 
 ✓ Authentication complete.
+
 - gh config set -h github.com git_protocol https
+
 ✓ Configured git protocol
+
 ! Authentication credentials saved in plain text
-✓ Logged in as rmabufoor-sketch
+
+✓ Logged in as rmabufoor-sketch (it will be your username)
+
+
+
+

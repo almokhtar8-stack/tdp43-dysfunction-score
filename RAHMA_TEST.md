@@ -115,5 +115,54 @@ ttps://github.com/login/device
 ✓ Logged in as rmabufoor-sketch (it will be your username)
 
 
+### Step 3: Configure Git (Tell it who you are)
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+```
+
+### Step 4: Clone the Project
+```bash
+# Go to Desktop
+cd ~/Desktop
+
+# Download the project
+git clone https://github.com/almokhtar8-stack/tdp43-dysfunction-score.git
+
+# Enter the folder
+cd tdp43-dysfunction-score
+
+# Check you're in the right place
+pwd
+```
+
+**Should show:** `/home/[yourname]/Desktop/tdp43-dysfunction-score` or similar
+
+**I didn't get any error here**
+
+### Step 5: Test Your Access
+```bash
+# Make a small test
+echo "- Your Name (tested successfully!)" >> CONTRIBUTORS.md
+
+# Add it
+git add CONTRIBUTORS.md
+
+# Commit
+git commit -m "test: add my name to contributors"
+
+# Push
+git push origin main
+```
+
+**I got an error here because I did not accept the envite to be a contributor** 
+remote: Permission to almokhtar8-stack/tdp43-dysfunction-score.git denied to rmabufoor-sketch.
+
+fatal: unable to access 'https://github.com/almokhtar8-stack/tdp43-dysfunction-score.git/': The requested URL returned error: 403
+
+
+**Check your email and accept the invite then run step 5 again**
+
+
 
 

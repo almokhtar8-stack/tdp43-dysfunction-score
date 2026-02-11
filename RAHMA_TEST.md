@@ -200,6 +200,8 @@ The file CONTRIBUTORS.md does not exist
   cat CONTRIBUTORS.md
 ```
 **The output**
--Contributors
+
+('Contributors')
+
 -Rahma (tested successfully!)
 

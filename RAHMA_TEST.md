@@ -7,7 +7,7 @@ First, switch user into rorym (my username)
 wsl -u rorym (replace with your username)
 ```
 Now my terminal is switched to 
-(base) rorym@Rahma:/mnt/c/Users/rorym$ 
+(base) username@name:/mnt/c/Users/username$ 
 
 ### Step 1: Check if You Have Git
 Start setting up GitHub access

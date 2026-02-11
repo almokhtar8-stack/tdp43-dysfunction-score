@@ -218,7 +218,7 @@ git push origin main
 echo "# Rahma's Practice File" > RAHMA_TEST.md
 cat RAHMA_TEST.md
 ```
-# Add file to GitHub
+### Add file to GitHub
 ```bash
 git add RAHMA_TEST.md
 # commit to command

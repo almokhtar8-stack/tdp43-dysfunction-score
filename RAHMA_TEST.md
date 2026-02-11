@@ -171,14 +171,26 @@ I ran this code to check if the file exixts
 ls CONTRIBUTORS.md
 ```
 **Error
+
 ls: cannot access 'CONTRIBUTORS.md': No such file or directory
-(base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ # list all files
-(base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ ls -F
+
+I ran another code:
+```bash
+# list all files
+ls -F
+```
+**The output:
+
 README.md*  TEAM_GITHUB_GUIDE.md*  data/  docs/  requirements.txt*  scripts/
-(base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ # file does not exist
-(base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ echo "# Contributors" > CONTRIBUTORS.md
-echo "- Rahma (tested successfully!)" >> CONTRIBUTORS.md
+The file CONTRIBUTORS.md does not exist
+```bash
+# file does not exist
+  echo "# Contributors" > CONTRIBUTORS.md
+  echo "- Rahma (tested successfully!)" >> CONTRIBUTORS.md
+```
+**Error 
 -bash: !: event not found
+
 (base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ # use single quotes (') instead of double quotes
 (base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ echo '- Rahma (tested successfully!)' >> CONTRIBUTORS.md
 (base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ # Verify it looks right

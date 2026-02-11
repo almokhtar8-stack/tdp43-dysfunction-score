@@ -38,6 +38,7 @@ I used the following code:
 ```
 
 **I have got a few instructions to follow after running the previous command**
+
 ==> Next steps: 
 - Run these commands in your terminal to add Homebrew to your PATH:
     echo >> /home/rorym/.bashrc
@@ -55,6 +56,7 @@ I used the following code:
 
   **I followed the prompt using the code below**
 **Make sure you're on the right path**
+
 It should be similar to this path  
 (base) username@name:/mnt/c/Users/username$
 ``` bash

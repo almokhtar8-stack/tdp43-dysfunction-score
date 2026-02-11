@@ -199,7 +199,7 @@ The file CONTRIBUTORS.md does not exist
   # Verify it looks right
   cat CONTRIBUTORS.md
 ```
-The output 
- Contributors
-- Rahma (tested successfully!)
+**The output**
+-Contributors
+-Rahma (tested successfully!)
 

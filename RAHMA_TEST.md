@@ -55,6 +55,7 @@ I used the following code:
 
   **I followed the prompt using the code below**
 **Make sure you're on the right path**
+It should be similar to this path  
 (base) username@name:/mnt/c/Users/username$
 ``` bash
 #Run these commands in your terminal to add Homebrew to your PATH:

@@ -37,4 +37,38 @@ I used the following code:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
+**I have got a few instructions to follow after running the previous command**
+==> Next steps: 
+- Run these commands in your terminal to add Homebrew to your PATH:
+    echo >> /home/rorym/.bashrc
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> /home/rorym/.bashrc
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+- Install Homebrew's dependencies if you have sudo access:
+    sudo apt-get install build-essential
+  For more information, see:
+    https://docs.brew.sh/Homebrew-on-Linux
+- We recommend that you install GCC:
+    brew install gcc
+- Run brew help to get started
+- Further documentation:
+    https://docs.brew.sh
+
+  **I followed the prompt using the code below**
+**Make sure you're on the right path**
+(base) username@name:/mnt/c/Users/username$
+``` bash
+#Run these commands in your terminal to add Homebrew to your PATH:
+    echo >> /home/rorym(chnge to your username)/.bashrc
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> /home/rorym(change to your username)/.bashrc
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+#Install Homebrew's dependencies if you have sudo access:
+    sudo apt-get install build-essential
+[sudo] password for rorym (username): (enter your password)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+build-essential is already the newest version (12.10ubuntu1).
+0 upgraded, 0 newly installed, 0 to remove and 12 not upgraded.
+(base) rorym@Rahma:/mnt/c/Users/rorym$  #We recommend that you install GCC:
+    brew install gcc
 

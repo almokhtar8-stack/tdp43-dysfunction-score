@@ -189,12 +189,17 @@ The file CONTRIBUTORS.md does not exist
   echo "- Rahma (tested successfully!)" >> CONTRIBUTORS.md
 ```
 **Error 
+
 -bash: !: event not found
 
-(base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ # use single quotes (') instead of double quotes
-(base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ echo '- Rahma (tested successfully!)' >> CONTRIBUTORS.md
-(base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ # Verify it looks right
-(base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ cat CONTRIBUTORS.md
-# Contributors
+**Changed the double quotes to single ones**
+
+```bash # use single quotes (') instead of double quotes
+  echo '- Rahma (yourname) (tested successfully!)' >> CONTRIBUTORS.md
+  # Verify it looks right
+  cat CONTRIBUTORS.md
+```
+The output 
+ Contributors
 - Rahma (tested successfully!)
 

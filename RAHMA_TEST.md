@@ -2,6 +2,8 @@
 # Set up Code
 
 ## This document will show the commands, errors, and solutions 
+
+### First, switch user into rorym (my username)
 PS C:\Users\rorym> wsl -u rorym
 (base) rorym@Rahma:/mnt/c/Users/rorym$ git --version
 git version 2.43.0

@@ -163,6 +163,26 @@ fatal: unable to access 'https://github.com/almokhtar8-stack/tdp43-dysfunction-s
 
 **Check your email and accept the invite then run step 5 again**
 
+### Errors I got after running step 5,
 
-
+I ran this code to check if the file exixts
+```bash
+#Verify the file exists:
+ls CONTRIBUTORS.md
+```
+**Error
+ls: cannot access 'CONTRIBUTORS.md': No such file or directory
+(base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ # list all files
+(base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ ls -F
+README.md*  TEAM_GITHUB_GUIDE.md*  data/  docs/  requirements.txt*  scripts/
+(base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ # file does not exist
+(base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ echo "# Contributors" > CONTRIBUTORS.md
+echo "- Rahma (tested successfully!)" >> CONTRIBUTORS.md
+-bash: !: event not found
+(base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ # use single quotes (') instead of double quotes
+(base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ echo '- Rahma (tested successfully!)' >> CONTRIBUTORS.md
+(base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ # Verify it looks right
+(base) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$ cat CONTRIBUTORS.md
+# Contributors
+- Rahma (tested successfully!)
 

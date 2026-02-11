@@ -67,11 +67,10 @@ It should be similar to this path
 #Install Homebrew's dependencies if you have sudo access:
     sudo apt-get install build-essential
 [sudo] password for rorym (username): (enter your password)
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-build-essential is already the newest version (12.10ubuntu1).
-0 upgraded, 0 newly installed, 0 to remove and 12 not upgraded.
-(base) rorym@Rahma:/mnt/c/Users/rorym$  #We recommend that you install GCC:
+
+ #We recommend that you install GCC:
     brew install gcc
+```
+
+
 

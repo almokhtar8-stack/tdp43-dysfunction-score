@@ -1,11 +1,15 @@
 # Rahma's Practice File
-# Set up Code
-
 ## This document will show the commands, errors, and solutions 
 
-### First, switch user into rorym (my username)
-PS C:\Users\rorym> wsl -u rorym
-(base) rorym@Rahma:/mnt/c/Users/rorym$ git --version
+1- Switch user into rorym (my username)
+
+```bash
+wsl -u rorym
+```
+Now my terminal is switched to 
+(base) rorym@Rahma:/mnt/c/Users/rorym$ 
+
+2- git --version
 git version 2.43.0
 (base) rorym@Rahma:/mnt/c/Users/rorym$ # Install GitHub CLI
 brew install gh

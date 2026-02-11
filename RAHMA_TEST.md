@@ -24,7 +24,7 @@ brew install gh
 gh auth login
 ```
 
-** I got an error message 
+**I got an error message** 
 Command 'brew' not found, did you mean:
   command 'qbrew' from deb qbrew (0.4.1-8build1)
   command 'brec' from deb bplay (0.991-10.2)

@@ -264,4 +264,27 @@ git push origin main
 # Press Ctrl+X to exit
 ```
 
+### Teseting the file
+
+ ``` bash
+# Testing the file
+nano scripts/01_quality_control/Rahma_script.R
+
+# Stage the new edits:
+git add scripts/01_quality_control/Rahma_script.R
+
+# Snapshot the changes:
+git commit -m "Update Rahma script with new analysis steps"
+
+# Upload to GitHub:
+git push origin main
+
+# show what's in my file
+cat scripts/01_quality_control/Rahma_script.R
+
+# The output
+# Testing the file
+# In this file, I will write the script (quality control script)
+```
+
 

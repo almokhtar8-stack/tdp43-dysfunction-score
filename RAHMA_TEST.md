@@ -290,3 +290,4 @@ cat scripts/01_quality_control/Rahma_script.R
 
 ### A few reminders:
 **Always work on the upddated version**
+**Check your path** (genomics) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$

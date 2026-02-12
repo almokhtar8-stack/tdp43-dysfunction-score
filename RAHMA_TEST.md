@@ -286,5 +286,7 @@ cat scripts/01_quality_control/Rahma_script.R
 # Testing the file
 # In this file, I will write the script (quality control script)
 ```
+**I then started the Environment Setup**
 
-
+### A few reminders:
+**Always work on the upddated version**

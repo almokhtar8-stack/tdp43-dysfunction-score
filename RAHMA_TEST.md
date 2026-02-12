@@ -289,5 +289,24 @@ cat scripts/01_quality_control/Rahma_script.R
 **I then started the Environment Setup**
 
 ### A few reminders:
-**Always work on the upddated version**
-**Check your path** (genomics) rorym@Rahma:/mnt/c/Users/rorym/tdp43-dysfunction-score$
+
+**Navigation, make sure you're on the right path**
+(genomics) username@name:/mnt/c/Users/rorym/tdp43-dysfunction-score$
+
+```bash
+cd ~/Desktop/tdp43-dysfunction-score    # Go to project
+pwd                                     # Where am I?
+ls                                      # List files
+ls -la                                  # List all (including hidden)
+```
+
+**Git Basics**
+```bash
+git status                              # What changed?
+git pull origin main                    # Get latest from team
+git add .                               # Add all changes
+git add path/to/file.R                  # Add specific file
+git commit -m "message"                 # Save changes locally
+git push origin main                    # Upload to GitHub
+```
+

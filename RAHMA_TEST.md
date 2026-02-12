@@ -294,10 +294,10 @@ cat scripts/01_quality_control/Rahma_script.R
 (genomics) username@name:/mnt/c/Users/rorym/tdp43-dysfunction-score$
 
 ```bash
-cd ~/Desktop/tdp43-dysfunction-score    # Go to project
-pwd                                     # Where am I?
-ls                                      # List files
-ls -la                                  # List all (including hidden)
+cd /mnt/c/Users/username/tdp43-dysfunction-score    # Go to project
+pwd                                                 # Where am I?
+ls                                                  # List files
+ls -la                                              # List all (including hidden)
 ```
 
 **Git Basics**

@@ -30,10 +30,10 @@ Machine learning model for genome-wide prediction of TDP-43 dysfunction from RNA
 ## 🧬 Dataset
 
 **Source:** GEO GSE136366  
-**Design:** TDP-43 KO (n=3) vs WT (n=3)  
+**Design:** TDP-43 KO (n=3) vs TDP-43 Rescue (n=3)
 **Platform:** Illumina HiSeq 2500, PE 2×76bp  
 **Reference:** GRCh38  
-**Chromosomes:** chr1-22, X, Y
+**Chromosomes:** chr1-10, 12-22, X (chr11 not in dataset, chrY excluded - female cells)
 
 
 ---

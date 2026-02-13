@@ -20,3 +20,14 @@
 
 **Location:** data/references/
 **Status:** ✅ Complete
+
+## 1.3 tx2gene Mapping Created
+**Date:** Feb 14, 2026
+
+**Script:** scripts/00_setup/create_tx2gene.R
+**Output:**
+- Transcripts: 646,577
+- Genes: 78,941
+- Files: data/references/tx2gene.rds, tx2gene.csv
+
+**Status:** ✅ Complete

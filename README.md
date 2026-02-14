@@ -20,10 +20,14 @@ Machine learning model for genome-wide prediction of TDP-43 dysfunction from RNA
 
 ## 📊 Status
 
-🟢 Phase 1: Setup (In Progress)  
-⚪ Phase 2: Genome-wide Analysis (tdb)  
-⚪ Phase 3: ML Modeling (tdb)  
-⚪ Phase 4: Publication (tdb)
+✅ Phase 1: Setup & Data Download (Complete - Feb 14, 2026)  
+🟢 Phase 2: Salmon Quantification (In Progress)  
+⚪ Phase 3: DESeq2 Analysis (Pending)  
+⚪ Phase 4: ML Modeling (Pending)  
+
+---
+
+**Last Updated:** February 14, 2026
 
 ---
 

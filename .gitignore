@@ -1,13 +1,7 @@
 # Data files (too large for GitHub)
 data/raw/*
 data/processed/*
-*.fastq
-*.fastq.gz
-*.bam
-*.sam
-*.fasta
-*.fa
-*.rds
+data/references/*
 
 # Keep folder structure
 !data/raw/.gitkeep
@@ -35,3 +29,30 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Backup files
+*.save
+*~
+*.backup
+
+# Large Salmon quantification files
+results/salmon/*/quant.sf
+results/salmon/*/aux_info/
+results/salmon/*/libParams/
+results/salmon/*/logs/
+results/salmon/*/cmd_info.json
+results/salmon/*/lib_format_counts.json
+
+# Large QC files
+results/qc/fastqc/*.html
+results/qc/fastqc/*.zip
+results/qc/multiqc/multiqc_data/
+
+# But KEEP small summary files!
+!results/qc/salmon/*.csv
+!results/qc/salmon/*.png
+!results/qc/multiqc/multiqc_report.html
+
+# Temporary files
+repo_structure.txt
+TEAM_GITHUB_GUIDE.md.save

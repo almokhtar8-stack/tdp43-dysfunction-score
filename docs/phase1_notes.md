@@ -31,3 +31,34 @@
 - Files: data/references/tx2gene.rds, tx2gene.csv
 
 **Status:** ✅ Complete
+
+## 1.4 SRA Data Downloaded
+**Date:** Feb 14, 2026
+**Script:** scripts/00_setup/download_sra.sh
+
+**Download time:** 5 hours 10 minutes (02:23 - 07:33)
+**Total size:** 67GB (12 files)
+
+**Samples:**
+- ✅ SRR10045016-018 (3 KO samples)
+- ✅ SRR10045019-021 (3 Rescue samples)
+
+**Verification:**
+- File count: 12 ✅
+- All .fastq.gz present ✅
+- Total size: 67GB ✅
+
+**Status:** ✅ COMPLETE
+
+---
+
+## PHASE 1 SUMMARY
+**Date completed:** Feb 14, 2026
+
+**Completed:**
+- ✅ 1.1 System check
+- ✅ 1.2 Ensembl references (310M)
+- ✅ 1.3 tx2gene mapping (646K transcripts → 79K genes)
+- ✅ 1.4 SRA data download (67GB, 6 samples)
+
+**Ready for Phase 2:** Salmon quantification

@@ -25,9 +25,10 @@ fastq-dump --version
 salmon --version
 ```
 
-**Status:** ☐ Complete  
-**Date:**  
-**Notes:**
+
+**Status:** ☑ Complete  
+**Date:** Feb 14, 2026  
+**Notes:** 92GB available, SRA toolkit 3.2.1, Salmon 1.10.3
 
 ---
 
@@ -51,12 +52,13 @@ ls -lh
 ```
 
 **Files to check:**
-- ☐ Homo_sapiens.GRCh38.cdna.all.fa.gz (~50MB)
-- ☐ Homo_sapiens.GRCh38.116.gtf.gz (~50MB)
+- ☑ Homo_sapiens.GRCh38.cdna.all.fa.gz (175M)
+- ☑ Homo_sapiens.GRCh38.116.gtf.gz (135M)
 
-**Status:** ☐ Complete  
-**Date:**  
-**Notes:**
+**Status:** ☑ Complete  
+**Date:** Feb 14, 2026  
+**Notes:** Both files downloaded successfully
+
 
 ---
 
@@ -105,10 +107,10 @@ cd ~/tdp43-dysfunction-score
 Rscript scripts/00_setup/create_tx2gene.R
 ```
 
-**Status:** ☐ Complete  
-**Date:**  
-**Transcripts:**  
-**Genes:**  
+**Status:** ☑ Complete  
+**Date:** Feb 14, 2026  
+**Transcripts:** 646,577  
+**Genes:** 78,941  
 
 ---
 
@@ -192,17 +194,17 @@ bash scripts/00_setup/download_sra.sh
 ```
 
 **Expected files (12 total):**
-- ☐ SRR10045016_1.fastq.gz, SRR10045016_2.fastq.gz (KO-1)
-- ☐ SRR10045017_1.fastq.gz, SRR10045017_2.fastq.gz (KO-2)
-- ☐ SRR10045018_1.fastq.gz, SRR10045018_2.fastq.gz (KO-3)
-- ☐ SRR10045019_1.fastq.gz, SRR10045019_2.fastq.gz (Rescue-1)
-- ☐ SRR10045020_1.fastq.gz, SRR10045020_2.fastq.gz (Rescue-2)
-- ☐ SRR10045021_1.fastq.gz, SRR10045021_2.fastq.gz (Rescue-3)
+- ☑ SRR10045016_1.fastq.gz, SRR10045016_2.fastq.gz (KO-1)
+- ☑ SRR10045017_1.fastq.gz, SRR10045017_2.fastq.gz (KO-2)
+- ☑ SRR10045018_1.fastq.gz, SRR10045018_2.fastq.gz (KO-3)
+- ☑ SRR10045019_1.fastq.gz, SRR10045019_2.fastq.gz (Rescue-1)
+- ☑ SRR10045020_1.fastq.gz, SRR10045020_2.fastq.gz (Rescue-2)
+- ☑ SRR10045021_1.fastq.gz, SRR10045021_2.fastq.gz (Rescue-3)
 
-**Status:** ☐ Complete  
-**Date:**  
-**Download time:**  
-**Total size:**  
+**Status:** ☑ Complete  
+**Date:** Feb 14, 2026  
+**Download time:** 5 hours 10 minutes (02:23 - 07:33)  
+**Total size:** 67GB  
 
 ---
 
@@ -220,9 +222,9 @@ ls -lh *.fastq.gz
 du -sh .
 ```
 
-**Status:** ☐ Complete  
-**File count:**  
-**Total size:**  
+**Status:** ☑ Complete  
+**File count:** 12  
+**Total size:** 67GB  
 
 ---
 
@@ -241,8 +243,8 @@ git commit -m "Phase 1 complete: downloaded complete genome data and references
 git push origin main
 ```
 
-**Status:** ☐ Complete  
-**Date:**  
+**Status:** ☑ Complete
+**Date:** Feb 14, 2026
 
 ---
 
@@ -635,7 +637,7 @@ git push origin main
 
 | Phase | Status | Date | Notes |
 |-------|--------|------|-------|
-| 1. Setup & Download | ☐ | | |
+| 1. Setup & Download | ☑ | Feb 14, 2026 | 67GB data, 646K transcripts, 79K genes |
 | 2. Quantification | ☐ | | |
 | 3. DESeq2 Analysis | ☐ | | |
 | 4. Visualization | ☐ | | |

@@ -89,19 +89,36 @@ Development of a machine learning-based TDP-43 dysfunction score to predict dise
 - Feature importance rankings
 - Model performance metrics
 
-### Phase 6: Pathway Enrichment (Omar)
-**Objective:** Biological interpretation
+---
 
-**Approach:**
-1. GO term enrichment (upregulated genes)
-2. KEGG pathway analysis
-3. Network analysis (protein-protein interactions)
-4. Literature validation
+## Phase 6: Pathway Enrichment (COMPLETE)
 
-**Expected Output:**
-- Enriched pathway lists
-- Network visualization
-- Biological interpretation
+**Date:** Feb 14, 2026  
+**Status:** ✅ COMPLETE
+
+### Key Results:
+
+**Enrichment Summary:**
+- 15 GO Biological Processes
+- 7 GO Molecular Functions  
+- 24 GO Cellular Components
+- 6 KEGG Pathways
+
+**Top Finding: Extracellular Matrix Dysregulation**
+- 22 genes involved in ECM organization
+- Highly significant (p.adj = 0.009)
+- Novel link between TDP-43 and ECM regulation
+
+**Secondary Findings:**
+- Inflammatory response activation (leukocyte migration)
+- Cell proliferation pathways
+- PI3K-Akt signaling pathway
+
+**Biological Interpretation:**
+- TDP-43 normally represses ECM genes
+- Loss → ECM dysregulation + inflammation
+- Relevant to ALS/FTD neurodegeneration
+- Provides therapeutic targets
 
 ### Phase 7: Manuscript (Zahra)
 **Objective:** Publication preparation

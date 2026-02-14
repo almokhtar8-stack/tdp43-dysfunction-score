@@ -1,0 +1,6 @@
+"metric","value"
+"Total genes analyzed","16536"
+"Significant genes (padj < 0.05, |log2FC| > 1)","617"
+"Upregulated in KO","488"
+"Downregulated in KO","129"
+"Percent significant","3.73%"

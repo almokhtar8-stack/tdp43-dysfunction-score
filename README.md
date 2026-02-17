@@ -10,19 +10,21 @@ Genome-wide differential expression analysis of TDP-43 dysfunction using CRISPR 
 
 ## 👥 Team
 
-**KAUST Academy Bioinformatics Project - February 2026**
+**KAUST Academy Bioinformatics Project — February 2026**
 
-- **Almokhtar Aljarodi** - Project Lead & Bioinformatics Analysis
-- **Rahma Abufoor** - RNA-seq Analysis & Quality Control
-- **Ahmed Bukhamsin** - Machine Learning Model Development
-- **Omar Buqes** - Pathway Enrichment & Network Analysis
-- **Zahra Almahal** - Manuscript Writing & Documentation
+| Role | Member | Responsibilities |
+|------|--------|-----------------|
+| **Project Lead** | Almokhtar Aljarodi | Pipeline architecture, integration, scientific decisions, GitHub management |
+| **Reproducibility** | Rahma Abufoor | Repository cloning, pipeline rerun, QC validation, validation report |
+| **Statistical Robustness** | Ahmed Bukhamsin | Alternative DE thresholds, ECM signal stability, sensitivity analysis |
+| **Biological Interpretation** | Omar Buqes | TDP-43/ECM literature review, discussion section draft |
+| **Manuscript Engineering** | Zahra Almahal | Methods section, figure organization, manuscript structure |
 
 ---
 
 ## 📊 Project Status
 
-**Last Updated:** February 14, 2026
+**Last Updated:** February 17, 2026
 
 ### Completed Phases ✅
 
@@ -52,18 +54,22 @@ Genome-wide differential expression analysis of TDP-43 dysfunction using CRISPR 
 
 - [x] **Phase 6: Pathway Enrichment** (Feb 14, 2026)
   - GO/KEGG enrichment analysis
-  - 22-gene ECM signature identified
+  - 22-gene ECM signature identified (p.adj = 0.009)
   - Validates recent TDP-43-ECM findings
   - Identifies therapeutic targets
 
+- [x] **Phase 5: ML Dysfunction Score** (Feb 17, 2026)
+  - Algorithm: Random Forest (LOOCV, n=6)
+  - ROC AUC = 1.0 — perfect classification
+  - Elastic Net independently confirmed ROC = 1.0
+  - KO scores: 96.8–97.6 | Rescue scores: 0.8–2.6
+  - ECM genes dominate feature importance (validates Phase 6)
+  - TARDBP autoregulation independently detected (rank 10)
+  - Cryptic neuronal program identified: SYN1, GABRA1 in HeLa cells
+
 ### In Progress / Pending ⚪
 
-- [ ] **Phase 5: ML Modeling** (Ahmed - Next)
-  - Feature selection from 617 DE genes
-  - TDP-43 dysfunction score algorithm
-  - Model validation
-
-- [ ] **Phase 7: Manuscript Writing** (Zahra - Final)
+- [ ] **Phase 7: Manuscript Writing** (Zahra — In Progress)
   - Methods section
   - Results description
   - Discussion and figures
@@ -83,8 +89,8 @@ Genome-wide differential expression analysis of TDP-43 dysfunction using CRISPR 
 
 Recent independent studies show TDP-43 regulates ECM:
 - **Endothelial cells:** Fernández-Galiana et al. (2024, JCI Insight), Hipke et al. (2023, Front Cell Dev Biol)
-- **Motor neurons:** Cheung et al. (2024, Neurobiol Dis) - MMP-9 degrades perineuronal nets in Q331K mice
-- **ALS patients:** Kaplan et al. (2024), Sun et al. (2020) - ECM genes enriched in motor neuron transcriptomics
+- **Motor neurons:** Cheung et al. (2024, Neurobiol Dis) — MMP-9 degrades perineuronal nets in Q331K mice
+- **ALS patients:** Kaplan et al. (2024), Sun et al. (2020) — ECM genes enriched in motor neuron transcriptomics
 
 **Our Unique Contribution:**
 - ✅ Independent confirmation via **unbiased genome-wide screen**
@@ -109,6 +115,31 @@ Multiple independent studies now demonstrate ECM dysregulation with TDP-43 loss 
 
 ---
 
+## 🤖 ML Dysfunction Score Results (Phase 5)
+
+### Sample Scores
+
+| Sample | Condition | ML Score | ECM Subscore | Inflammatory | Survival |
+|--------|-----------|----------|-------------|--------------|---------|
+| SRR10045016 | KO | 97.6 | 100.0 | 97.4 | 95.5 |
+| SRR10045017 | KO | 97.2 | 97.4 | 95.0 | 94.8 |
+| SRR10045018 | KO | 96.8 | 99.8 | 100.0 | 100.0 |
+| SRR10045019 | Rescue | 1.2 | 0.9 | 0.9 | 0.0 |
+| SRR10045020 | Rescue | 2.6 | 0.1 | 0.0 | 3.5 |
+| SRR10045021 | Rescue | 0.8 | 0.0 | 0.9 | 5.0 |
+
+**Score interpretation:** 0–30 = Low dysfunction | 31–60 = Moderate | 61–100 = High dysfunction (KO-like)
+
+### Key ML Findings
+
+1. **Perfect Classification (ROC = 1.0):** Complete separation KO vs Rescue in both Random Forest and Elastic Net
+2. **TARDBP Autoregulation Detected:** TARDBP itself (rank 10) is a top discriminating feature — model independently rediscovered known autoregulation via 3′UTR binding
+3. **ECM Genes Dominate Feature Importance:** TMEM63C (#1), IGFN1 (#5), FNDC7 (#8), CHRDL1 (#12), FMOD (#19) — independently validates Phase 6 enrichment
+4. **Cryptic Neuronal Program:** SYN1 (#2, synapsin I) and GABRA1 (#9, GABA-A receptor) appear in HeLa (non-neuronal) cells — TDP-43 normally represses cryptic neuronal transcription
+5. **Inflammatory Axis Confirmed:** TNFRSF10D (#15, TNF receptor) confirmed independently by ML feature selection
+
+---
+
 ## 🏥 Clinical & Therapeutic Implications
 
 ### Why This Matters for ALS/FTD Patients
@@ -129,7 +160,7 @@ Multiple independent studies now demonstrate ECM dysregulation with TDP-43 loss 
 
 ### 2. **Progression Prediction**
 - High score → severe dysfunction → fast progression
-- Low score → mild dysfunction → slow progression  
+- Low score → mild dysfunction → slow progression
 - **Personalize treatment intensity** based on predicted course
 
 ### 3. **Treatment Monitoring**
@@ -171,14 +202,14 @@ Multiple independent studies now demonstrate ECM dysregulation with TDP-43 loss 
 
 ## 🧬 Dataset Information
 
-**Source:** GEO Accession GSE136366  
-**Publication:** Brown et al. (2020)  
-**Design:** TDP-43 CRISPR KO (n=3) vs TDP-43 Rescue (n=3)  
-**Cell Type:** HeLa cells  
-**Platform:** Illumina HiSeq 2500  
-**Read Type:** Paired-end, 2×76bp  
-**Reference Genome:** Homo sapiens GRCh38 (Ensembl release 116)  
-**Chromosomes Analyzed:** chr1-22, chrX (chrY excluded - female cells)
+**Source:** GEO Accession GSE136366
+**Publication:** Brown et al. (2020)
+**Design:** TDP-43 CRISPR KO (n=3) vs TDP-43 Rescue (n=3)
+**Cell Type:** HeLa cells
+**Platform:** Illumina HiSeq 2500
+**Read Type:** Paired-end, 2×76bp
+**Reference Genome:** Homo sapiens GRCh38 (Ensembl release 116)
+**Chromosomes Analyzed:** chr1-22, chrX (chrY excluded — female cells)
 
 ### Sample IDs
 
@@ -204,7 +235,7 @@ Multiple independent studies now demonstrate ECM dysregulation with TDP-43 loss 
 ### Differential Expression
 - **Total genes analyzed:** 16,536
 - **Significant genes:** 617 (3.73%)
-- **Upregulated in KO:** 488 (79%) - validates TDP-43 repressor function
+- **Upregulated in KO:** 488 (79%) — validates TDP-43 repressor function
 - **Downregulated in KO:** 129 (21%)
 - **Effect sizes:** log2FC ranges from -7 to +7
 
@@ -213,6 +244,14 @@ Multiple independent studies now demonstrate ECM dysregulation with TDP-43 loss 
 - **GO terms enriched:** 15 BP, 7 MF, 24 CC
 - **KEGG pathways:** 6 (ECM-receptor, PI3K-Akt, focal adhesion, etc.)
 - **Validates:** Emerging TDP-43-ECM link across cell types
+
+### ML Dysfunction Score (Phase 5)
+- **Best model:** Random Forest (LOOCV)
+- **ROC AUC:** 1.0 (confirmed by Elastic Net)
+- **KO scores:** 96.8 — 97.6
+- **Rescue scores:** 0.8 — 2.6
+- **Top feature:** TMEM63C (ECM gene, rank #1)
+- **Key finding:** TARDBP autoregulation independently detected
 
 ### Biological Interpretation
 - TDP-43 primarily functions as transcriptional repressor
@@ -224,10 +263,11 @@ Multiple independent studies now demonstrate ECM dysregulation with TDP-43 loss 
 
 ## 🚀 Translational Roadmap
 
-### Stage 1: Model Development (Current - Phase 5)
+### Stage 1: Model Development (Complete ✅ — Phase 5)
 **Timeline:** Months 1-3
-- Ahmed develops ML dysfunction score from 617 genes
+- Random Forest dysfunction score from 617 genes
 - Algorithm outputs 0-100 score quantifying TDP-43 pathology
+- ROC = 1.0, perfect separation of KO vs Rescue
 
 ### Stage 2: External Validation
 **Timeline:** Months 4-6
@@ -259,6 +299,7 @@ Multiple independent studies now demonstrate ECM dysregulation with TDP-43 loss 
 ---
 
 ## 📁 Repository Structure
+
 ```
 tdp43-dysfunction-score/
 ├── data/
@@ -271,23 +312,27 @@ tdp43-dysfunction-score/
 │   ├── 02_quantification/      # Salmon index & quant
 │   ├── 03_differential_expression/  # DESeq2 analysis
 │   ├── 04_visualization/       # PCA, volcano, heatmap plots
-│   ├── 05_ml_modeling/        # ML dysfunction score (in progress)
-│   └── 06_enrichment_analysis/ # GO/KEGG pathways (complete)
+│   ├── 05_ml_modeling/        # ML dysfunction score ✅ complete
+│   └── 06_enrichment_analysis/ # GO/KEGG pathways ✅ complete
 ├── results/
 │   ├── qc/              # Quality control reports
 │   ├── salmon/          # Quantification outputs (local only)
 │   ├── tables/          # DESeq2 results (CSV files)
 │   ├── figures/         # Publication-quality plots (PNG)
+│   │   └── ml/          # ML model figures (5 plots)
 │   ├── enrichment/      # Pathway analysis results
-│   └── models/          # Saved R objects (DESeq2)
+│   └── models/          # Saved models + dysfunction scores
 ├── docs/
-│   ├── phase1_notes.md         # Data download documentation
-│   ├── phase2_notes.md         # Quantification notes
-│   ├── phase3_notes.md         # DESeq2 analysis
-│   ├── phase4_notes.md         # Visualization details
-│   ├── phase6_notes.md         # Pathway enrichment
-│   ├── project_summary.md      # Overall project summary
-│   └── genome_wide_workflow.md # Complete workflow checklist
+│   ├── phase1_notes.md
+│   ├── phase2_notes.md
+│   ├── phase3_notes.md
+│   ├── phase4_notes.md
+│   ├── phase5_notes.md
+│   ├── phase6_notes.md
+│   ├── project_summary.md
+│   └── genome_wide_workflow.md
+├── logs/
+│   └── phase5_ml.log    # ML run log (complete)
 └── README.md            # This file
 ```
 
@@ -297,58 +342,44 @@ tdp43-dysfunction-score/
 
 ### 1. Data Acquisition
 ```bash
-# Download SRA files
 scripts/00_setup/download_sra.sh
-
-# Download Ensembl references
-scripts/00_setup/download_ensembl.sh
-
-# Create tx2gene mapping
 Rscript scripts/00_setup/create_tx2gene.R
 ```
 
 ### 2. Quality Control
 ```bash
-# Run FastQC on all samples
 bash scripts/01_quality_control/run_fastqc.sh
-
-# Results: all samples >90% quality, no trimming needed
 ```
 
 ### 3. Quantification
 ```bash
-# Build Salmon index
 bash scripts/02_quantification/build_salmon_index.sh
-
-# Quantify all samples
 bash scripts/02_quantification/run_salmon_quant.sh
-
-# Generate QC plots
-Rscript scripts/02_quantification/salmon_qc_plots.R
 ```
 
 ### 4. Differential Expression
 ```bash
-# Run DESeq2 analysis
 Rscript scripts/03_differential_expression/run_deseq2.R
-
-# Output: 617 significant genes identified
+# Output: 617 significant genes
 ```
 
 ### 5. Visualization
 ```bash
-# Generate all plots
 Rscript scripts/04_visualization/create_plots.R
-
 # Output: 5 publication-quality figures
 ```
 
 ### 6. Pathway Enrichment
 ```bash
-# Run enrichment analysis
 Rscript scripts/06_enrichment_analysis/run_enrichment.R
+# Output: ECM top pathway, 22-gene signature
+```
 
-# Output: GO/KEGG results + visualizations
+### 7. ML Dysfunction Score
+```bash
+Rscript scripts/05_ml_modeling/run_ml_score.R
+Rscript scripts/05_ml_modeling/annotate_features.R
+# Output: ROC=1.0, scores 0.8–97.6
 ```
 
 ---
@@ -356,34 +387,43 @@ Rscript scripts/06_enrichment_analysis/run_enrichment.R
 ## 📊 Output Files
 
 ### Quality Control
-- `results/qc/fastqc/` - Individual FastQC reports
-- `results/qc/multiqc/multiqc_report.html` - Aggregated QC report
-- `results/qc/salmon/*.png` - Salmon QC plots
+- `results/qc/fastqc/` — Individual FastQC reports
+- `results/qc/multiqc/multiqc_report.html` — Aggregated QC report
+- `results/qc/salmon/*.png` — Salmon QC plots
 
 ### Differential Expression Results
-- `results/tables/deseq2_results_all.csv` - All 16,536 genes
-- `results/tables/deseq2_results_significant.csv` - 617 significant genes
-- `results/tables/genes_upregulated_in_KO.csv` - 488 genes
-- `results/tables/genes_downregulated_in_KO.csv` - 129 genes
-- `results/tables/deseq2_summary_stats.csv` - Summary statistics
+- `results/tables/deseq2_results_all.csv` — All 16,536 genes
+- `results/tables/deseq2_results_significant.csv` — 617 significant genes
+- `results/tables/genes_upregulated_in_KO.csv` — 488 genes
+- `results/tables/genes_downregulated_in_KO.csv` — 129 genes
+- `results/tables/deseq2_summary_stats.csv` — Summary statistics
 
 ### Pathway Enrichment Results
-- `results/enrichment/go_bp_upregulated.csv` - GO Biological Process (15 terms)
-- `results/enrichment/go_mf_upregulated.csv` - GO Molecular Function (7 terms)
-- `results/enrichment/kegg_upregulated.csv` - KEGG pathways (6 pathways)
-- `results/enrichment/go_bp_upregulated_barplot.png` - Visualization
-- `results/enrichment/go_bp_upregulated_dotplot.png` - Gene ratios plot
-- `results/enrichment/kegg_upregulated_barplot.png` - KEGG visualization
+- `results/enrichment/go_bp_upregulated.csv` — GO Biological Process (15 terms)
+- `results/enrichment/go_mf_upregulated.csv` — GO Molecular Function (7 terms)
+- `results/enrichment/kegg_upregulated.csv` — KEGG pathways (6 pathways)
+- `results/enrichment/go_bp_upregulated_barplot.png`
+- `results/enrichment/go_bp_upregulated_dotplot.png`
+- `results/enrichment/kegg_upregulated_barplot.png`
+
+### ML Dysfunction Score Results
+- `results/models/dysfunction_score_model.rds` — Saved Random Forest model
+- `results/models/dysfunction_scores_all_samples.csv` — All 6 sample scores
+- `results/models/feature_importance.csv` — Top discriminating genes
+- `results/models/feature_importance_annotated.csv` — With gene symbols
+- `results/models/model_comparison.csv` — RF vs Elastic Net comparison
+- `results/figures/ml/dysfunction_score_barplot.png`
+- `results/figures/ml/pathway_subscores_heatmap.png`
+- `results/figures/ml/pathway_subscores_boxplot.png`
+- `results/figures/ml/feature_importance.png`
+- `results/figures/ml/score_distribution.png`
 
 ### Visualizations
-- `results/figures/pca_plot.png` - Sample clustering
-- `results/figures/volcano_plot.png` - DE significance
-- `results/figures/ma_plot.png` - Expression vs fold change
-- `results/figures/heatmap_top50.png` - Top genes clustered
-- `results/figures/boxplot_top5.png` - Individual gene expression
-
-### R Objects
-- `results/models/dds.rds` - DESeq2 dataset object
+- `results/figures/pca_plot.png` — Sample clustering
+- `results/figures/volcano_plot.png` — DE significance
+- `results/figures/ma_plot.png` — Expression vs fold change
+- `results/figures/heatmap_top50.png` — Top genes clustered
+- `results/figures/boxplot_top5.png` — Individual gene expression
 
 ---
 
@@ -391,8 +431,8 @@ Rscript scripts/06_enrichment_analysis/run_enrichment.R
 
 ### Software
 - R (≥4.0)
-- Bioconductor packages: DESeq2, tximport, clusterProfiler, org.Hs.eg.db
-- CRAN packages: ggplot2, pheatmap, dplyr
+- Bioconductor: DESeq2, tximport, clusterProfiler, org.Hs.eg.db, biomaRt
+- CRAN: ggplot2, pheatmap, dplyr, caret, randomForest, glmnet, e1071
 - Salmon (≥1.10)
 - FastQC (≥0.12)
 - MultiQC (≥1.33)
@@ -407,12 +447,13 @@ Rscript scripts/06_enrichment_analysis/run_enrichment.R
 ## 📚 Documentation
 
 Complete documentation available in `docs/`:
-- **phase1_notes.md** - Data download details
-- **phase2_notes.md** - Salmon quantification logs
-- **phase3_notes.md** - DESeq2 analysis summary
-- **phase4_notes.md** - Visualization interpretation
-- **phase6_notes.md** - Pathway enrichment analysis
-- **project_summary.md** - Overall findings
+- **phase1_notes.md** — Data download details
+- **phase2_notes.md** — Salmon quantification logs
+- **phase3_notes.md** — DESeq2 analysis summary
+- **phase4_notes.md** — Visualization interpretation
+- **phase5_notes.md** — ML modeling results and interpretation
+- **phase6_notes.md** — Pathway enrichment analysis
+- **project_summary.md** — Overall findings
 
 ---
 
@@ -423,13 +464,15 @@ Complete documentation available in `docs/`:
 2. Quantification: Salmon quasi-mapping (k-mer 31)
 3. Differential expression: DESeq2 (VST normalization)
 4. Pathway enrichment: clusterProfiler (GO/KEGG)
-5. Thresholds: padj < 0.05 (FDR), |log2FC| > 1
+5. ML dysfunction score: Random Forest + Elastic Net (LOOCV)
+6. Thresholds: padj < 0.05 (FDR), |log2FC| > 1
 
 **Statistical Analysis:**
 - Normalization: Variance Stabilizing Transformation (VST)
 - Multiple testing correction: Benjamini-Hochberg FDR
 - Pre-filtering: Genes with ≥10 total reads
 - Significance: Adjusted p-value < 0.05 + |log2FC| > 1
+- ML validation: Leave-One-Out Cross-Validation (n=6)
 
 ---
 
@@ -439,22 +482,23 @@ Complete documentation available in `docs/`:
 Brown AL, et al. (2020). TDP-43 loss and ALS-risk SNPs drive mis-splicing and depletion of UNC13A. *Nature*. GEO: GSE136366
 
 ### Methods
-- Love MI, et al. (2014). Moderated estimation of fold change and dispersion for RNA-seq data with DESeq2. *Genome Biology*.
-- Patro R, et al. (2017). Salmon provides fast and bias-aware quantification of transcript expression. *Nature Methods*.
-- Yu G, et al. (2012). clusterProfiler: an R package for comparing biological themes among gene clusters. *OMICS*.
+- Love MI, et al. (2014). DESeq2. *Genome Biology*.
+- Patro R, et al. (2017). Salmon. *Nature Methods*.
+- Yu G, et al. (2012). clusterProfiler. *OMICS*.
 
 ### TDP-43 & ECM Literature
 - Fernández-Galiana I, et al. (2024). Endothelial TDP-43 controls sprouting angiogenesis and vascular barrier integrity. *JCI Insight*.
-- Hipke K, et al. (2023). Loss of TDP-43 causes ectopic endothelial sprouting through increased fibronectin, vcam 1 and integrin α4/β1. *Front Cell Dev Biol*.
+- Hipke K, et al. (2023). Loss of TDP-43 causes ectopic endothelial sprouting. *Front Cell Dev Biol*.
 - Cheung SW, et al. (2024). Phagocytosis of aggrecan-positive perineuronal nets by MMP-9 expressing microglia in TDP-43Q331K mice. *Neurobiol Dis*.
 - Kaplan A, et al. (2024). Meta-analysis of differential gene expression in ALS motor neurons. *Front Genet*.
+- Sun Q, et al. (2020). sALS motor neurons and ECM. *Front Genet*.
 
 ---
 
 ## 📧 Contact
 
-**Almokhtar Aljarodi**  
-Email: almokhtaraljarodi@gmail.com  
+**Almokhtar Aljarodi**
+Email: almokhtaraljarodi@gmail.com
 GitHub: [@almokhtar8-stack](https://github.com/almokhtar8-stack)
 
 **Repository:** https://github.com/almokhtar8-stack/tdp43-dysfunction-score
@@ -467,9 +511,9 @@ This project is for academic research purposes.
 
 ---
 
-**Project initiated:** February 11, 2026  
-**Phases 1-4, 6 completed:** February 14, 2026  
-**Status:** Active Development
+**Project initiated:** February 11, 2026
+**Phases 1–6 completed:** February 14–17, 2026
+**Status:** Active Development — Phase 7 (Manuscript) in progress
 
 ---
 

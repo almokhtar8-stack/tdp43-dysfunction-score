@@ -264,33 +264,28 @@ Multiple independent studies now demonstrate ECM dysregulation with TDP-43 loss 
 ## 🚀 Translational Roadmap
 
 ### Stage 1: Model Development (Complete ✅ — Phase 5)
-**Timeline:** Months 1-3
 - Random Forest dysfunction score from 617 genes
 - Algorithm outputs 0-100 score quantifying TDP-43 pathology
 - ROC = 1.0, perfect separation of KO vs Rescue
 
 ### Stage 2: External Validation
-**Timeline:** Months 4-6
 - Test on independent TDP-43 datasets
 - Validate in patient-derived cells (iPSCs)
 - Optimize gene panel (reduce to 50-100 most important genes)
 
 ### Stage 3: Clinical Validation
-**Timeline:** Year 2
 - Recruit 100 ALS patients + 50 controls
 - Blood transcriptomics → calculate score
 - Correlate with 12-month clinical progression
 - Submit to FDA for biomarker qualification
 
 ### Stage 4: Therapeutic Trials
-**Timeline:** Years 3-5
 - Biomarker-enriched Phase II trial
 - Test MMP inhibitor + anti-inflammatory combination
 - Primary endpoint: Dysfunction score change at 6 months
 - Adaptive design based on score response
 
 ### Stage 5: Clinical Implementation
-**Timeline:** Years 5-10
 - Score becomes standard ALS biomarker
 - Clinical-grade assay (qPCR panel)
 - Insurance reimbursement

@@ -1,0 +1,401 @@
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.0     ✔ readr     2.1.6
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.2     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Loading required package: lattice
+
+Attaching package: ‘caret’
+
+The following object is masked from ‘package:purrr’:
+
+    lift
+
+randomForest 4.7-1.2
+Type rfNews() to see new features/changes/bug fixes.
+
+Attaching package: ‘randomForest’
+
+The following object is masked from ‘package:dplyr’:
+
+    combine
+
+The following object is masked from ‘package:ggplot2’:
+
+    margin
+
+
+Attaching package: ‘e1071’
+
+The following object is masked from ‘package:ggplot2’:
+
+    element
+
+Loading required package: Matrix
+
+Attaching package: ‘Matrix’
+
+The following objects are masked from ‘package:tidyr’:
+
+    expand, pack, unpack
+
+Loaded glmnet 4.1-10
+
+Attaching package: ‘scales’
+
+The following object is masked from ‘package:purrr’:
+
+    discard
+
+The following object is masked from ‘package:readr’:
+
+    col_factor
+
+
+Attaching package: ‘gridExtra’
+
+The following object is masked from ‘package:randomForest’:
+
+    combine
+
+The following object is masked from ‘package:dplyr’:
+
+    combine
+
+Loading required package: viridisLite
+
+Attaching package: ‘viridis’
+
+The following object is masked from ‘package:scales’:
+
+    viridis_pal
+
+Loading required package: S4Vectors
+Loading required package: stats4
+Loading required package: BiocGenerics
+
+Attaching package: ‘BiocGenerics’
+
+The following object is masked from ‘package:gridExtra’:
+
+    combine
+
+The following object is masked from ‘package:randomForest’:
+
+    combine
+
+The following objects are masked from ‘package:lubridate’:
+
+    intersect, setdiff, union
+
+The following objects are masked from ‘package:dplyr’:
+
+    combine, intersect, setdiff, union
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, aperm, append, as.data.frame, basename, cbind,
+    colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
+    get, grep, grepl, intersect, is.unsorted, lapply, Map, mapply,
+    match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,
+    Position, rank, rbind, Reduce, rownames, sapply, saveRDS, setdiff,
+    table, tapply, union, unique, unsplit, which.max, which.min
+
+
+Attaching package: ‘S4Vectors’
+
+The following objects are masked from ‘package:Matrix’:
+
+    expand, unname
+
+The following objects are masked from ‘package:lubridate’:
+
+    second, second<-
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, rename
+
+The following object is masked from ‘package:tidyr’:
+
+    expand
+
+The following object is masked from ‘package:utils’:
+
+    findMatches
+
+The following objects are masked from ‘package:base’:
+
+    expand.grid, I, unname
+
+Loading required package: IRanges
+
+Attaching package: ‘IRanges’
+
+The following object is masked from ‘package:lubridate’:
+
+    %within%
+
+The following objects are masked from ‘package:dplyr’:
+
+    collapse, desc, slice
+
+The following object is masked from ‘package:purrr’:
+
+    reduce
+
+Loading required package: GenomicRanges
+Loading required package: GenomeInfoDb
+Loading required package: SummarizedExperiment
+Loading required package: MatrixGenerics
+Loading required package: matrixStats
+
+Attaching package: ‘matrixStats’
+
+The following object is masked from ‘package:dplyr’:
+
+    count
+
+
+Attaching package: ‘MatrixGenerics’
+
+The following objects are masked from ‘package:matrixStats’:
+
+    colAlls, colAnyNAs, colAnys, colAvgsPerRowSet, colCollapse,
+    colCounts, colCummaxs, colCummins, colCumprods, colCumsums,
+    colDiffs, colIQRDiffs, colIQRs, colLogSumExps, colMadDiffs,
+    colMads, colMaxs, colMeans2, colMedians, colMins, colOrderStats,
+    colProds, colQuantiles, colRanges, colRanks, colSdDiffs, colSds,
+    colSums2, colTabulates, colVarDiffs, colVars, colWeightedMads,
+    colWeightedMeans, colWeightedMedians, colWeightedSds,
+    colWeightedVars, rowAlls, rowAnyNAs, rowAnys, rowAvgsPerColSet,
+    rowCollapse, rowCounts, rowCummaxs, rowCummins, rowCumprods,
+    rowCumsums, rowDiffs, rowIQRDiffs, rowIQRs, rowLogSumExps,
+    rowMadDiffs, rowMads, rowMaxs, rowMeans2, rowMedians, rowMins,
+    rowOrderStats, rowProds, rowQuantiles, rowRanges, rowRanks,
+    rowSdDiffs, rowSds, rowSums2, rowTabulates, rowVarDiffs, rowVars,
+    rowWeightedMads, rowWeightedMeans, rowWeightedMedians,
+    rowWeightedSds, rowWeightedVars
+
+Loading required package: Biobase
+Welcome to Bioconductor
+
+    Vignettes contain introductory material; view with
+    'browseVignettes()'. To cite Bioconductor, see
+    'citation("Biobase")', and for packages 'citation("pkgname")'.
+
+
+Attaching package: ‘Biobase’
+
+The following object is masked from ‘package:MatrixGenerics’:
+
+    rowMedians
+
+The following objects are masked from ‘package:matrixStats’:
+
+    anyMissing, rowMedians
+
+✅ All packages loaded successfully!
+
+📂 Loading data...
+✅ Loaded 617 significant genes
+✅ Loaded 6 samples
+
+📊 Extracting normalized counts...
+✅ Extracted 617 significant genes x 6 samples
+Sample information:
+                 sample condition
+SRR10045016 SRR10045016        KO
+SRR10045017 SRR10045017        KO
+SRR10045018 SRR10045018        KO
+SRR10045019 SRR10045019    Rescue
+SRR10045020 SRR10045020    Rescue
+SRR10045021 SRR10045021    Rescue
+
+🧬 Defining pathway gene sets...
+✅ ECM genes identified: 22
+✅ Inflammatory genes identified: 107
+✅ Survival genes identified: 57
+
+⚙️  Calculating pathway subscores...
+Columns in sig_genes:
+[1] "baseMean"       "log2FoldChange" "lfcSE"          "stat"          
+[5] "pvalue"         "padj"          
+Upregulated genes: 488
+Downregulated genes: 129
+
+🔧 Building feature matrix...
+✅ Feature matrix: 6 samples x 617 genes
+
+🔍 Selecting top features...
+✅ Selected top 100 genes by effect size
+Class distribution:
+y
+Rescue     KO 
+     3      3 
+
+🔄 Setting up cross-validation...
+✅ Using Leave-One-Out Cross-Validation (LOOCV)
+   (Optimal for n=6 small datasets)
+
+🤖 Training ML models...
+  Training Random Forest...
+  ✅ Random Forest complete!
+     Best ROC: 1
+  Training SVM...
+Something is wrong; all the ROC metric values are missing:
+   ROC            Sens           Spec        
+ Mode:logical   Mode:logical   Mode:logical  
+ NA's:3         NA's:3         NA's:3        
+  ⚠️  SVM error: Stopping
+There were 18 warnings (use warnings() to see them)
+  Training Elastic Net...
+  ✅ Elastic Net complete!
+     Best ROC: 1
+There were 19 warnings (use warnings() to see them)
+
+📊 Comparing model performance...
+
+Model Performance Comparison:
+                    Model Best_ROC Best_Sensitivity Best_Specificity
+RandomForest RandomForest        1                1                1
+ElasticNet     ElasticNet        1                1                1
+
+✅ Best model: RandomForest
+   ROC AUC: 1
+
+🎯 Calculating TDP-43 dysfunction scores...
+
+Dysfunction Scores per Sample:
+================================
+# A tibble: 6 × 6
+  sample      condition dysfunction_score KO_prob observed predicted
+  <chr>       <fct>                 <dbl>   <dbl> <chr>    <chr>    
+1 SRR10045016 KO                     97.6   0.976 KO       KO       
+2 SRR10045017 KO                     97.2   0.972 KO       KO       
+3 SRR10045018 KO                     96.8   0.968 KO       KO       
+4 SRR10045020 Rescue                  2.6   0.026 Rescue   Rescue   
+5 SRR10045019 Rescue                  1.2   0.012 Rescue   Rescue   
+6 SRR10045021 Rescue                  0.8   0.008 Rescue   Rescue   
+
+🔬 Calculating pathway subscores...
+
+Complete Dysfunction Score Profile:
+=====================================
+                 sample condition ecm_subscore inflammatory_subscore
+SRR10045016 SRR10045016        KO        100.0                  97.4
+SRR10045017 SRR10045017        KO         97.4                  95.0
+SRR10045018 SRR10045018        KO         99.8                 100.0
+SRR10045019 SRR10045019    Rescue          0.9                   0.9
+SRR10045020 SRR10045020    Rescue          0.1                   0.0
+SRR10045021 SRR10045021    Rescue          0.0                   0.9
+            survival_subscore ml_dysfunction_score
+SRR10045016              95.5                 97.6
+SRR10045017              94.8                 97.2
+SRR10045018             100.0                 96.8
+SRR10045019               0.0                  1.2
+SRR10045020               3.5                  2.6
+SRR10045021               5.0                  0.8
+
+🏆 Extracting feature importance...
+
+Top 20 Most Important Genes:
+              gene importance         model
+1  ENSG00000165548  100.00000 Random Forest
+2  ENSG00000008056   93.47826 Random Forest
+3  ENSG00000185479   82.60870 Random Forest
+4  ENSG00000293642   75.00000 Random Forest
+5  ENSG00000163395   71.73913 Random Forest
+6  ENSG00000280571   66.30435 Random Forest
+7  ENSG00000002933   66.30435 Random Forest
+8  ENSG00000143107   66.30435 Random Forest
+9  ENSG00000022355   66.30435 Random Forest
+10 ENSG00000120948   64.13043 Random Forest
+11 ENSG00000179772   61.95652 Random Forest
+12 ENSG00000101938   60.86957 Random Forest
+13 ENSG00000189064   60.86957 Random Forest
+14 ENSG00000137558   56.52174 Random Forest
+15 ENSG00000173530   56.52174 Random Forest
+16 ENSG00000198520   56.52174 Random Forest
+17 ENSG00000107249   55.43478 Random Forest
+18 ENSG00000188959   55.43478 Random Forest
+19 ENSG00000122176   53.26087 Random Forest
+20 ENSG00000152582   52.17391 Random Forest
+✅ Feature importance saved!
+
+🎨 Creating visualizations...
+  ✅ Plot 1: Dysfunction score barplot saved
+null device 
+          1 
+  ✅ Plot 2: Pathway subscores heatmap saved
+Warning message:
+Removed 4 rows containing missing values or values outside the scale range
+(`geom_point()`). 
+  ✅ Plot 3: Pathway subscores boxplot saved
+  ✅ Plot 4: Feature importance saved
+  ✅ Plot 5: Score distribution saved
+
+💾 Saving results...
+  ✅ Best model saved
+  ✅ Dysfunction scores saved
+  ✅ Model comparison saved
+
+Model Comparison:
+                    model best_ROC
+RandomForest RandomForest        1
+ElasticNet     ElasticNet        1
+
+═══════════════════════════════════════════════════
+        PHASE 5: ML MODELING COMPLETE!            
+═══════════════════════════════════════════════════
+
+📊 DYSFUNCTION SCORE RESULTS:
+───────────────────────────────
+Best Model:  RandomForest
+Best ROC:    1
+
+Sample Scores:
+                 sample condition ml_dysfunction_score ecm_subscore
+SRR10045016 SRR10045016        KO                 97.6        100.0
+SRR10045017 SRR10045017        KO                 97.2         97.4
+SRR10045018 SRR10045018        KO                 96.8         99.8
+SRR10045020 SRR10045020    Rescue                  2.6          0.1
+SRR10045019 SRR10045019    Rescue                  1.2          0.9
+SRR10045021 SRR10045021    Rescue                  0.8          0.0
+            inflammatory_subscore survival_subscore
+SRR10045016                  97.4              95.5
+SRR10045017                  95.0              94.8
+SRR10045018                 100.0             100.0
+SRR10045020                   0.0               3.5
+SRR10045019                   0.9               0.0
+SRR10045021                   0.9               5.0
+
+📁 OUTPUT FILES:
+───────────────────────────────
+results/models/dysfunction_score_model.rds
+results/models/dysfunction_scores_all_samples.csv
+results/models/feature_importance.csv
+results/models/model_comparison.csv
+results/figures/ml/dysfunction_score_barplot.png
+results/figures/ml/pathway_subscores_heatmap.png
+results/figures/ml/pathway_subscores_boxplot.png
+results/figures/ml/feature_importance.png
+results/figures/ml/score_distribution.png
+
+🎯 INTERPRETATION:
+───────────────────────────────
+Score 0-30:  Low dysfunction (Rescue-like)
+Score 31-60: Moderate dysfunction
+Score 61-100: High dysfunction (KO-like)
+
+✅ Phase 5 complete! Ready for manuscript.
+═══════════════════════════════════════════════════

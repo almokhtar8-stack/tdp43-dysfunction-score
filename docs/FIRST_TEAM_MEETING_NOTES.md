@@ -1,10 +1,10 @@
 # TDP-43 Dysfunction Score Project
 ## First Team Meeting - Notes
 
-**Date:** [Insert Date]  
-**Time:** [Insert Time]  
+**Date:** 02/03/2026 
+**Time:** 9 - 10 pm 
 **Duration:** 60 minutes  
-**Location:** [Insert Location/Zoom]  
+**Location:** Google meet
 **Prepared by:** Almokhtar Aljarodi
 
 ---
@@ -14,7 +14,6 @@
 - ✅ Almokhtar Aljarodi (Project Lead)
 - ✅ Rahma Abufoor (Reproducibility Lead)
 - ✅ Ahmed Bukhamsin (Statistical Robustness)
-- ✅ Omar Buqes (Biological Interpretation)
 - ✅ Zahra Almahal (Manuscript Engineer)
 
 ---
@@ -135,7 +134,7 @@
 - Feb 17: Phase 5 complete
 - Feb 14-Mar 2: Rahma validation complete
 
-### Future Timeline (8 weeks to submission)
+### Future Timeline (8 weeks to submission) "flexible"
 
 | Week | Tasks | Owner |
 |------|-------|-------|
@@ -155,11 +154,9 @@
 
 ## ✅ DECISIONS MADE
 
-1. **8-week timeline to manuscript submission** - Agreed by all
-2. **Weekly Friday check-ins** - [Vote needed for specific time]
-3. **GitHub workflow:** Everyone works only in their assigned branch, never push to main
-4. **Communication:** WhatsApp for quick questions, GitHub Issues for technical problems
-5. **Deadline:** All team members push initial progress by **Friday this week**
+1. **Flexible timeline to manuscript submission** - Agreed by all
+2. **Weekly Friday check-ins** - Not decided
+3. **Communication:** WhatsApp for quick questions, GitHub Issues for technical problems
 
 ---
 
@@ -173,7 +170,6 @@
 - [ ] Be available on WhatsApp for questions
 - [ ] Draft manuscript outline (section structure + figure order)
 
-**Deadline:** Manuscript outline by end of Week 1
 
 ---
 
@@ -194,8 +190,6 @@
 - [ ] Test Ahmed's robustness analysis workflow
 - [ ] Verify Ahmed's results
 
-**Deadline:** Both documents by Friday this week  
-**Branch:** `rahma/reproducibility`
 
 ---
 
@@ -231,13 +225,11 @@
 - [ ] `docs/ahmed_robustness_results.md` (by end of Week 2)
 - [ ] Comparison table (CSV file)
 
-**Deadline:** Script + initial results by Friday  
-**Branch:** `ahmad/robustness`  
 **Note:** Almokhtar will provide script template
 
 ---
 
-### 8.4 Omar Buqes (Biological Interpretation)
+### 8.4 Omar Buqes (Biological Interpretation) collaboration with Zahra
 **Status:** ⚠️ NOT STARTED - Critical for manuscript
 
 **Objective:** Connect ECM findings to TDP-43/ALS/FTD literature, write discussion
@@ -275,13 +267,11 @@
 - [ ] Literature comparison table (by end of Week 2)
 - [ ] `docs/omar_discussion_draft.md` (by end of Week 3)
 
-**Deadline:** Literature notes by Friday  
-**Branch:** `omar/discussion`  
 **Note:** Use PubMed citation format
 
 ---
 
-### 8.5 Zahra Almahal (Manuscript Engineer)
+### 8.5 Zahra Almahal (Manuscript Engineer) collaboration with Omar
 **Status:** ⚠️ NOT STARTED - Final assembly step
 
 **Objective:** Write Methods section, assemble complete manuscript
@@ -331,9 +321,7 @@
 - [ ] `docs/zahra_manuscript_v1.md` (by end of Week 4)
 - [ ] Formatted Word document (by end of Week 5)
 
-**Deadline:** Methods draft by end of Week 3  
-**Branch:** `zahra/manuscript`  
-**Note:** Starts Week 3 (needs Omar's discussion first)
+
 
 ---
 
@@ -341,13 +329,12 @@
 
 | Member | This Week | Next Week | Week 3+ | Branch |
 |--------|-----------|-----------|---------|--------|
-| **Almokhtar** | Monitor, outline | Review drafts | Integrate | `main` |
-| **Rahma** | Validation report | Help Ahmed | Review final | `rahma/reproducibility` |
-| **Ahmed** | Read, plan, script | Run tests | Revisions | `ahmad/robustness` |
-| **Omar** | Read 5 papers, lit search | Discussion draft | Revisions | `omar/discussion` |
-| **Zahra** | Read phase notes | Methods draft | Assemble manuscript | `zahra/manuscript` |
+| **Almokhtar** | Monitor, outline | Review drafts | Integrate | 
+| **Rahma** | Validation report | Help Ahmed | Review final | 
+| **Ahmed** | Read, plan, script | Run tests | Revisions | 
+| **Omar** | Read 5 papers, lit search | Discussion draft | Revisions | 
+| **Zahra** | Read phase notes | Methods draft | Assemble manuscript | 
 
-**Universal Deadline:** Initial progress push by **Friday**
 
 ---
 
@@ -378,10 +365,7 @@ git push origin YOUR_BRANCH
 
 **WhatsApp Group:** Quick questions, daily updates, urgent issues  
 **GitHub Issues:** Technical problems, code issues  
-**Weekly Meetings:** Friday [time TBD] - 1 hour  
-**Response Time:** Within 24 hours
 
-**Rule:** If stuck for >2 hours → message Almokhtar immediately
 
 ---
 
@@ -402,39 +386,6 @@ git push origin YOUR_BRANCH
 
 **Ultimate Goal:** Help ALS/FTD patients live longer, better lives
 
----
-
-## ❓ QUESTIONS RAISED / DISCUSSION
-
-**Q:** Is ROC = 1.0 too good to be true?  
-**A:** No - strong biological signal from extreme comparison (complete KO vs rescue), validated multiple ways, LOOCV prevents overfitting
-
-**Q:** Meeting time preference?  
-**A:** [To be decided - vote needed]
-
-**Q:** Git issues?  
-**A:** Rahma will create tutorial document
-
-**Q:** Authorship order?  
-**A:** 
-1. Almokhtar (first/corresponding)
-2. Ahmed (robustness critical)
-3. Omar (interpretation)
-4. Rahma (validation)
-5. Zahra (manuscript)
-
----
-
-## 📅 NEXT MEETING
-
-**Date:** Friday, [Insert Date]  
-**Time:** [To be determined by team vote]  
-**Format:** Weekly check-in (1 hour)
-
-**Agenda:**
-- Progress updates (2 min each person)
-- Discuss blockers (30 min)
-- Plan next week (20 min)
 
 ---
 
@@ -443,23 +394,12 @@ git push origin YOUR_BRANCH
 Within 24 hours:
 - [ ] Send meeting notes to all team members
 - [ ] Share GitHub branch links
-- [ ] Create WhatsApp group (if not exists)
-- [ ] Send calendar invites for weekly meetings
 - [ ] Provide Ahmed's script template
-- [ ] Pin deadline summary in WhatsApp
 
-**WhatsApp Pin:**
-```
-🎯 DEADLINES:
-- Friday: Initial progress push
-- Week 2: Ahmed robustness complete
-- Week 3: Omar discussion draft
-- Week 4: Zahra methods draft
-- Week 8: SUBMISSION
+
 
 📚 KEY DOCS:
 - README: github.com/almokhtar8-stack/tdp43-dysfunction-score
-- Meeting notes: [link]
 
 ❓ STUCK? Message Almokhtar!
 ```
@@ -472,7 +412,6 @@ Within 24 hours:
 - ✅ Presented complete project overview (Phases 1-6)
 - ✅ Explained ML approach and ROC = 1.0 rationale
 - ✅ Assigned specific tasks to all team members
-- ✅ Established 8-week timeline to submission
 - ✅ Defined communication channels
 
 **Pending:**

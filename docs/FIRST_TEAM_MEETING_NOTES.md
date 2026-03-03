@@ -126,6 +126,249 @@
 
 ---
 
+## TDP-43 Dysfunction Score: Clinical Interpretation Guide
+
+### Overall Dysfunction Score (0-100)
+
+**What it measures:** Global TDP-43 pathology across all 617 dysregulated genes
+
+**Score interpretation:**
+- **0-30 = Low dysfunction** (Rescue-like, healthy)
+- **31-60 = Moderate dysfunction** (intermediate pathology)
+- **61-100 = High dysfunction** (KO-like, severe pathology)
+
+**Clinical application:**
+- **Early detection:** Screen at-risk individuals (family history, genetic mutations)
+  - Score >60 before symptoms → intervene early
+- **Diagnosis support:** Confirm ALS/FTD in uncertain cases
+  - High score + clinical symptoms = confirms TDP-43 pathology
+- **Prognosis:** Predict disease progression
+  - Score 90-100 → fast progression (aggressive treatment needed)
+  - Score 60-75 → moderate progression (standard care)
+  - Score 30-60 → slow progression (watchful waiting)
+
+**Example:**
+- Patient with family history but no symptoms
+- Score = 75 → **High risk**, start treatment NOW
+- Score = 25 → Monitor annually, no treatment yet
+
+---
+
+### Pathway Subscores (Precision Medicine)
+
+The overall score is decomposed into 3 biological pathways. Each subscore guides specific treatment selection.
+
+#### 1. ECM Dysregulation Subscore (0-100)
+
+**What it measures:** Extracellular matrix breakdown (22 genes)
+
+**High ECM subscore (>70) suggests:**
+- Matrix metalloproteinases (MMPs) degrading protective ECM
+- Perineuronal nets around neurons breaking down
+- Loss of structural support for motor neurons
+
+**Treatment recommendation:**
+- **MMP inhibitors** (ECM stabilization)
+  - **Minocycline** (200mg/day) - FDA-approved antibiotic, crosses blood-brain barrier
+  - **Doxycycline** (100mg twice daily) - MMP inhibitor + anti-inflammatory
+  - Mechanism: Prevent ECM degradation, preserve neuronal support structures
+
+**Example patient:**
+| Score Component | Value | Interpretation |
+|----------------|-------|----------------|
+| Overall | 85 | High dysfunction |
+| **ECM subscore** | **95** | **Severe ECM damage** |
+| Inflammatory | 60 | Moderate inflammation |
+| Survival | 70 | Moderate survival deficit |
+
+**Treatment plan:** MMP inhibitor (minocycline) as PRIMARY therapy + supportive care
+
+---
+
+#### 2. Inflammatory Response Subscore (0-100)
+
+**What it measures:** Neuroinflammation (23 genes: cytokines, leukocyte migration)
+
+**High inflammatory subscore (>70) suggests:**
+- Chronic immune activation in CNS
+- Cytokine storm (IL-6, TNF-α)
+- Microglial activation damaging neurons
+
+**Treatment recommendation:**
+- **Anti-cytokine biologics** (inflammation suppression)
+  - **Tocilizumab** (8mg/kg IV monthly) - IL-6 receptor antibody
+  - **Infliximab** (5mg/kg IV) - TNF-α inhibitor
+  - Mechanism: Block inflammatory cascade, reduce chronic neuroinflammation
+
+**Example patient:**
+| Score Component | Value | Interpretation |
+|----------------|-------|----------------|
+| Overall | 82 | High dysfunction |
+| ECM subscore | 55 | Moderate ECM damage |
+| **Inflammatory** | **98** | **Severe inflammation** |
+| Survival | 65 | Moderate survival deficit |
+
+**Treatment plan:** Tocilizumab (anti-IL-6) as PRIMARY therapy + ECM support
+
+---
+
+#### 3. Survival Signaling Subscore (0-100)
+
+**What it measures:** PI3K-Akt pathway dysfunction (26 genes)
+
+**High survival subscore (>70) suggests:**
+- Neurons losing survival signals
+- Apoptosis pathways activated
+- Growth factor signaling impaired
+
+**Treatment recommendation:**
+- **PI3K-Akt enhancers** (neuronal survival support)
+  - **Rapamycin** (2mg/day) - mTOR modulator, enhances autophagy
+  - **Insulin-like growth factor (IGF-1)** - survival signaling
+  - Mechanism: Boost neuronal survival pathways, prevent apoptosis
+
+**Example patient:**
+| Score Component | Value | Interpretation |
+|----------------|-------|----------------|
+| Overall | 88 | High dysfunction |
+| ECM subscore | 60 | Moderate ECM damage |
+| Inflammatory | 70 | Moderate inflammation |
+| **Survival** | **100** | **Critical survival deficit** |
+
+**Treatment plan:** Rapamycin as PRIMARY therapy + anti-inflammatory support
+
+---
+
+### Combination Therapy (Multiple High Subscores)
+
+**Example patient with complex pathology:**
+
+| Score Component | Value | Interpretation |
+|----------------|-------|----------------|
+| **Overall** | **92** | **Severe dysfunction** |
+| **ECM subscore** | **95** | **Severe ECM damage** |
+| **Inflammatory** | **90** | **Severe inflammation** |
+| **Survival** | **88** | **Severe survival deficit** |
+
+**Treatment plan (Triple Combination):**
+1. **ECM stabilization:** Minocycline 200mg/day
+2. **Anti-inflammatory:** Tocilizumab 8mg/kg IV monthly
+3. **Survival support:** Rapamycin 2mg/day
+4. **Standard ALS care:** Riluzole, edaravone (existing FDA drugs)
+
+**Rationale:** All 3 pathways severely affected → address all simultaneously
+
+**Monitoring:** Repeat score every 3 months
+- Subscores decreasing → treatment working
+- Subscores stable/rising → switch regimen
+
+---
+
+### Clinical Decision Algorithm
+```
+Patient presents with suspected TDP-43 dysfunction
+          ↓
+Calculate Overall Score (0-100)
+          ↓
+┌─────────────────────────────────────────┐
+│ Score 0-30: Low dysfunction             │
+│ → Monitor annually, no treatment        │
+└─────────────────────────────────────────┘
+          ↓
+┌─────────────────────────────────────────┐
+│ Score 31-60: Moderate dysfunction       │
+│ → Every 6 months, consider treatment    │
+└─────────────────────────────────────────┘
+          ↓
+┌─────────────────────────────────────────┐
+│ Score 61-100: High dysfunction          │
+│ → START TREATMENT NOW                   │
+│ → Calculate pathway subscores           │
+└─────────────────────────────────────────┘
+          ↓
+Check which subscore is HIGHEST
+          ↓
+┌─────────┬─────────────┬──────────────┐
+│ ECM >70 │ Inflam >70  │ Survival >70 │
+│    ↓    │      ↓      │       ↓      │
+│  MMP    │ Anti-IL-6   │  Rapamycin   │
+│ inhibit │   or TNF-α  │   or IGF-1   │
+└─────────┴─────────────┴──────────────┘
+          ↓
+Multiple subscores >70?
+          ↓
+     YES → Combination therapy
+      NO → Single pathway therapy
+          ↓
+Repeat score every 3 months → adjust treatment
+```
+
+---
+
+### Real-World Example Cases
+
+**Case 1: Pre-symptomatic Detection**
+- **Patient:** 45-year-old, mother has ALS, no symptoms
+- **Overall score:** 72 (high dysfunction)
+- **Subscores:** ECM=85, Inflammatory=55, Survival=60
+- **Action:** Start minocycline NOW (before symptoms appear)
+- **Outcome:** Delay symptom onset by 1-2 years
+
+**Case 2: Treatment Selection**
+- **Patient:** 62-year-old, diagnosed ALS 6 months ago
+- **Overall score:** 88 (severe dysfunction)
+- **Subscores:** ECM=60, Inflammatory=95, Survival=80
+- **Action:** Tocilizumab (primary) + rapamycin (secondary)
+- **Outcome:** Reduce inflammation, slow progression
+
+**Case 3: Treatment Failure Detection**
+- **Patient:** On minocycline for 6 months
+- **Baseline score:** 78 → **Current score:** 82 (increased)
+- **Subscores:** ECM=70 (stable), Inflammatory=95 (increased 40 points)
+- **Action:** Inflammation now dominant → ADD tocilizumab
+- **Outcome:** Catch failure at 6 months (vs 12 months with clinical assessment)
+
+**Case 4: Monitoring Response**
+- **Patient:** On triple therapy (minocycline + tocilizumab + rapamycin)
+- **Baseline:** Overall=90, ECM=95, Inflammatory=88, Survival=85
+- **3 months:** Overall=75, ECM=70, Inflammatory=65, Survival=70
+- **Interpretation:** ALL subscores decreased 15-25 points → **TREATMENT WORKING**
+- **Action:** Continue current regimen, recheck in 3 months
+
+---
+
+### Key Advantages Over Current Practice
+
+| Current ALS Care | With Dysfunction Score |
+|------------------|------------------------|
+| Diagnose when symptomatic (neurons 50-80% dead) | Detect dysfunction before symptoms (all neurons intact) |
+| No way to predict fast vs slow progression | Score predicts prognosis (guide treatment intensity) |
+| Trial-and-error drug selection | Subscores guide rational drug choice |
+| Wait 12 months to assess treatment response | Detect failure in 3 months, switch faster |
+| One-size-fits-all (riluzole for everyone) | Personalized (match patient to pathway) |
+
+---
+
+### Summary
+
+**Overall Score (0-100):**
+- Detects TDP-43 dysfunction (ALS/FTD)
+- Predicts progression speed
+- Monitors treatment response
+
+**Pathway Subscores:**
+- **ECM >70** → MMP inhibitors (minocycline, doxycycline)
+- **Inflammatory >70** → Anti-cytokine biologics (tocilizumab, infliximab)
+- **Survival >70** → PI3K-Akt modulators (rapamycin, IGF-1)
+
+**Clinical workflow:**
+1. Calculate overall score → determine disease severity
+2. Calculate subscores → select targeted therapy
+3. Repeat every 3 months → adjust treatment based on response
+
+**Impact:** Earlier detection, personalized treatment, faster response assessment → better outcomes for ALS/FTD patients
+---
+
 ## 📅 TIMELINE
 
 ### Past Milestones

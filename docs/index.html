@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDP-43 Dysfunction Score | ML-Based ALS/FTD Biomarker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">TDP-43 Dysfunction Score</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#results">Results</a>
+                <a href="#calculator">Try Demo</a>
+                <a href="https://github.com/almokhtar8-stack/tdp43-dysfunction-score" target="_blank" class="btn-github">View on GitHub</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Early Detection for ALS/FTD</h1>
+            <p class="subtitle">Machine learning-based molecular biomarker for TDP-43 dysfunction</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">617</div>
+                    <div class="stat-label">Gene Signature</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Classification Accuracy</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">0-100</div>
+                    <div class="stat-label">Dysfunction Score</div>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a href="#calculator" class="btn btn-primary">Try Interactive Demo</a>
+                <a href="https://github.com/almokhtar8-stack/tdp43-dysfunction-score" class="btn btn-secondary">Explore Code</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section section-light">
+        <div class="container">
+            <h2>The Problem</h2>
+            <p class="lead">ALS and FTD have no cure. Patients are diagnosed late (after 50-80% neuron loss) and survival is 2-5 years. There are no molecular biomarkers for early detection or treatment monitoring.</p>
+            
+            <h2 style="margin-top: 3rem;">Our Solution</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🧬</div>
+                    <h3>617-Gene Signature</h3>
+                    <p>Genome-wide RNA-seq analysis identifies TDP-43 dysfunction patterns</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <h3>ML Dysfunction Score</h3>
+                    <p>Random Forest model produces 0-100 score quantifying pathology severity</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💊</div>
+                    <h3>Pathway Subscores</h3>
+                    <p>ECM, inflammatory, and survival subscores guide targeted treatment</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>Clinical Applications</h3>
+                    <p>Early detection, progression prediction, treatment monitoring, trial enrichment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Findings -->
+    <section id="results" class="section">
+        <div class="container">
+            <h2>Key Findings</h2>
+            
+            <!-- Score Comparison Chart -->
+            <div class="chart-container">
+                <div id="scoreChart"></div>
+            </div>
+
+            <div class="findings-grid">
+                <div class="finding">
+                    <h3>🎯 Perfect Classification</h3>
+                    <p>ROC = 1.0 in both Random Forest and Elastic Net models. Complete separation of KO vs Rescue samples.</p>
+                </div>
+                <div class="finding">
+                    <h3>🧱 ECM Dysregulation Validated</h3>
+                    <p>22-gene ECM signature emerges as #1 pathway (p.adj = 0.009), confirming recent literature across multiple cell types.</p>
+                </div>
+                <div class="finding">
+                    <h3>🔬 TARDBP Autoregulation</h3>
+                    <p>TARDBP ranked #10 in feature importance, model independently rediscovered known 3'UTR autoregulation.</p>
+                </div>
+                <div class="finding">
+                    <h3>💉 Therapeutic Targets</h3>
+                    <p>MMP inhibitors (ECM), anti-IL-6 biologics (inflammation), PI3K-Akt modulators (survival) identified.</p>
+                </div>
+            </div>
+
+            <!-- Pathway Subscores Heatmap -->
+            <div class="chart-container" style="margin-top: 3rem;">
+                <h3 style="text-align: center; margin-bottom: 1rem;">Pathway Subscores: KO vs Rescue</h3>
+                <div id="subscoreChart"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Calculator -->
+    <section id="calculator" class="section section-light">
+        <div class="container">
+            <h2>Try the Dysfunction Score</h2>
+            <p class="lead">Select a sample to see how the ML model calculates dysfunction scores</p>
+            
+            <div class="calculator">
+                <div class="calculator-controls">
+                    <label for="sampleSelect">Choose Sample:</label>
+                    <select id="sampleSelect" onchange="updateScore()">
+                        <option value="0">KO Sample 1 (SRR10045016)</option>
+                        <option value="1">KO Sample 2 (SRR10045017)</option>
+                        <option value="2">KO Sample 3 (SRR10045018)</option>
+                        <option value="3">Rescue Sample 1 (SRR10045019)</option>
+                        <option value="4">Rescue Sample 2 (SRR10045020)</option>
+                        <option value="5">Rescue Sample 3 (SRR10045021)</option>
+                    </select>
+                </div>
+
+                <div class="score-display">
+                    <div class="score-main">
+                        <div class="score-label">Overall Dysfunction Score</div>
+                        <div class="score-value" id="mainScore">97.6</div>
+                        <div class="score-bar">
+                            <div class="score-bar-fill" id="mainScoreBar" style="width: 97.6%"></div>
+                        </div>
+                        <div class="score-interpretation" id="interpretation">HIGH DYSFUNCTION (KO-like)</div>
+                    </div>
+
+                    <div class="subscores">
+                        <div class="subscore">
+                            <div class="subscore-label">ECM Dysregulation</div>
+                            <div class="subscore-value" id="ecmScore">100.0</div>
+                            <div class="subscore-bar">
+                                <div class="subscore-bar-fill ecm" id="ecmBar" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <div class="subscore">
+                            <div class="subscore-label">Inflammatory Response</div>
+                            <div class="subscore-value" id="inflamScore">97.4</div>
+                            <div class="subscore-bar">
+                                <div class="subscore-bar-fill inflam" id="inflamBar" style="width: 97.4%"></div>
+                            </div>
+                        </div>
+                        <div class="subscore">
+                            <div class="subscore-label">Survival Signaling</div>
+                            <div class="subscore-value" id="survivalScore">95.5</div>
+                            <div class="subscore-bar">
+                                <div class="subscore-bar-fill survival" id="survivalBar" style="width: 95.5%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="treatment-suggestion" id="treatment">
+                        <strong>Suggested Treatment:</strong> MMP inhibitors (minocycline) + anti-inflammatory (tocilizumab) + PI3K-Akt modulators (rapamycin)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <h2>Explore the Full Analysis</h2>
+            <p class="lead">Complete code, documentation, and reproducible workflow available on GitHub</p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="https://github.com/almokhtar8-stack/tdp43-dysfunction-score" class="btn btn-primary btn-large">View Repository</a>
+            </div>
+            <div class="github-features">
+                <div>✓ Complete RNA-seq pipeline</div>
+                <div>✓ DESeq2 analysis scripts</div>
+                <div>✓ ML model code</div>
+                <div>✓ Pathway enrichment</div>
+                <div>✓ Publication-quality figures</div>
+                <div>✓ Detailed documentation</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>TDP-43 Dysfunction Score Project | KAUST Academy 2026</p>
+            <p>
+                <a href="https://github.com/almokhtar8-stack/tdp43-dysfunction-score">GitHub</a> | 
+                <a href="mailto:almokhtaraljarodi@gmail.com">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -59,6 +59,15 @@ The scripts evolved from basic functional versions to robust pipelines. These ch
 * **Rahma's code:** `kegg_up <- try(enrichKEGG(gene = up_entrez, ...), silent = TRUE)`
 * **The Impact:** Prevents the entire enrichment pipeline from crashing if the KEGG servers are down or the internet connection is unstable.
 
+## Part 3: Results Verification
+A comparative analysis was performed between the outputs of **Almokhtar's original code** and **Rahma's reproduced code**. 
+
+### Phase Comparison
+* **Quantification:** Both versions achieved an identical average mapping rate of **92.69%** across all 6 samples.
+* **Differential Expression:** Both versions identified exactly **617 significant genes** (488 upregulated, 129 downregulated) with identical top-ranked genes.
+* **Biological Clustering:** PCA results remained consistent, with **PC1 accounting for 84% of variance**, showing perfect separation between KO and Rescue groups.
+* **Pathway Enrichment:** Both versions identified the same top biological themes, specifically **Extracellular Matrix Organization** and **PI3K-Akt signaling**.
+
 ## Current Status
 - Scripts organized in `scripts/Rahmas_script`.
 - Salmon index built and validated.

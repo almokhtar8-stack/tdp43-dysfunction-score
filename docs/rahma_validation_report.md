@@ -1,4 +1,3 @@
-cat << 'EOF' > rahma_validation_report.md
 # Validation Report: TDP-43 Project
 **Author:** Rahma
 **Date: 2026-03-19**

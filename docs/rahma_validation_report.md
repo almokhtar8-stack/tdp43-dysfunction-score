@@ -27,35 +27,40 @@ This report documents the resolution of technical issues encountered during the 
 * **The Fix:** Treated as non-fatal warnings for the current successful index. Recommended adding the `--decoys` flag for future refinements.
 
 ## Part 2: Script Evolution and Optimization
-The scripts evolved from basic functional versions to robust pipelines as a direct response to the errors above.
+The scripts evolved from basic functional versions to robust pipelines. These changes were made to improve error handling and environment awareness.
 
-### 1. download_sra.sh (Environmental Awareness)
-* **Almokhtar's code:** `cd ~/tdp43-dysfunction-score` 
-* **Rahma's code:** `echo "Working in: $(pwd)"` 
-* **Impact:** Prevents filling the C: drive if the H: drive mount fails.
+### 1. download_sra.sh
+* **The Change:** Added environment verification and storage awareness.
+* **Almokhtar's code:** `cd ~/tdp43-dysfunction-score`
+* **Rahma's code:** `echo "Working in: $(pwd)"`
+* **The Impact:** Prevents filling the internal C: drive if the H: drive mount fails and provides a visual check of the working directory.
 
-### 2. build_salmon_index.sh (Path Agnosticism) 
-* **Almokhtar's code:** `cd ~/tdp43-dysfunction-score` 
+### 2. build_salmon_index.sh
+* **The Change:** Transitioned to path-agnostic execution.
+* **Almokhtar's code:** `cd ~/tdp43-dysfunction-score`
 * **Rahma's code:** *(Removed hardcoded cd, uses relative paths)*
-* **Impact:** Allows the script to run regardless of the physical mount point.
+* **The Impact:** Increases script flexibility, allowing it to run correctly even if the project folder is moved or the mount point changes.
 
-### 3. run_salmon_quant.sh (Metadata Mapping) 
+### 3. run_salmon_quant.sh
+* **The Change:** Integrated metadata mapping via parallel arrays.
 * **Almokhtar's code:** `for SAMPLE in "${ALL_SAMPLES[@]}"`
-* **Rahma's code:** `for i in "${!SAMPLES[@]}"; do NAME=${NAMES[$i]}` 
-* **Impact:** Maps SRR IDs to biological names ("KO-1") for better tracking of samples.
+* **Rahma's code:** `for i in "${!SAMPLES[@]}"; do NAME=${NAMES[$i]}`
+* **The Impact:** Links technical SRR IDs to biological sample names ("KO" vs "Rescue") directly in the output logs for easier tracking.
 
-### 4. run_deseq2.R (Data Integrity)
-* **Almokhtar's code:** `txi <- tximport(files, type="salmon", tx2gene=tx2gene)` 
-* **Rahma's code:** `txi <- readRDS("data/processed/genome_wide_txi.rds")` 
-* **Impact:** Ensures the analysis uses validated, pre-processed data instantly.
+### 4. run_deseq2.R
+* **The Change:** Shifted from raw data import to serialized object loading.
+* **Almokhtar's code:** `txi <- tximport(files, type="salmon", tx2gene=tx2gene)`
+* **Rahma's code:** `txi <- readRDS("data/processed/genome_wide_txi.rds")`
+* **The Impact:** Ensures the differential expression analysis uses pre-validated data and significantly reduces script runtime.
 
-### 5. run_enrichment.R (Defensive Programming) 
-* **Almokhtar's code:** `kegg_up <- enrichKEGG(gene = up_entrez, ...)` 
+### 5. run_enrichment.R
+* **The Change:** Implemented error handling for external server dependencies.
+* **Almokhtar's code:** `kegg_up <- enrichKEGG(gene = up_entrez, ...)`
 * **Rahma's code:** `kegg_up <- try(enrichKEGG(gene = up_entrez, ...), silent = TRUE)`
-* **Impact:** Prevents pipeline failure during network/server outages.
+* **The Impact:** Prevents the entire enrichment pipeline from crashing if the KEGG servers are down or the internet connection is unstable.
 
 ## Current Status
 - Scripts organized in `scripts/Rahmas_script`.
 - Salmon index built and validated.
 - Data integrity verified for all 6 samples.
-- **Note:** Analysis results remain identical between the first and second versions of the scripts; optimization was focused strictly on code robustness, path flexibility, and error handling. 
+- **Note:** Analysis results remain identical between the first and second versions of the scripts; optimization was focused strictly on code robustness, path flexibility, and error handling.

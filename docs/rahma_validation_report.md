@@ -1,4 +1,4 @@
-# Validation Report: TDP-43 Project
+# Validation Report: TDP-43 Dysfunction Score Project
 **Author:** Rahma
 **Date:** 2026-03-19
 

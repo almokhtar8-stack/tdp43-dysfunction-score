@@ -17,6 +17,7 @@ sudo mkdir -p /mnt/h
 
 # Mount H: drive with full user permissions
 sudo mount -t drvfs H: /mnt/h -o uid=$(id -u),gid=$(id -g),fmask=111,dmask=000
+```
 
 ### 1.2 Software Stack (Conda)
 I used a dedicated environment named `genomics` to manage all bioinformatics dependencies.
@@ -27,7 +28,7 @@ I used a dedicated environment named `genomics` to manage all bioinformatics dep
 
 ```bash
 conda activate genomics
-
+```
 ## 2. Step-by-Step Pipeline Execution
 
 ### Phase 0: Data & Reference Preparation
@@ -48,6 +49,7 @@ Before quantification, I performed a full quality assessment of the raw 12 FASTQ
 **How to run:**
 ```bash
 bash scripts/Rahmas_scripts/01_quality_control/r_run_qc.sh
+```
 
 ### Phase 2: Quantification
 * **Salmon Indexing:** Ran `bash scripts/Rahmas_scripts/02_quantification/r_build_salmon_index.sh`.

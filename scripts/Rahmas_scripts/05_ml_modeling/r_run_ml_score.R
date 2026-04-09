@@ -742,12 +742,12 @@ dir.create("results/models", showWarnings = FALSE, recursive = TRUE)
 
 # Save best model
 saveRDS(best_model,
-        "results/models/dysfunction_score_model.rds")
+        "results/models/r_dysfunction_score_model.rds")
 cat("  ✅ Best model saved\n")
 
 # Save all scores
 write.csv(all_scores,
-          "results/models/dysfunction_scores_all_samples.csv",
+          "results/models/r_dysfunction_scores_all_samples.csv",
           row.names = FALSE)
 cat("  ✅ Dysfunction scores saved\n")
 
@@ -761,7 +761,7 @@ if(length(models_list) > 0) {
   ) %>% arrange(desc(best_ROC))
 
   write.csv(model_comparison,
-            "results/models/model_comparison.csv",
+            "results/models/r_model_comparison.csv",
             row.names = FALSE)
   cat("  ✅ Model comparison saved\n")
   cat("\nModel Comparison:\n")

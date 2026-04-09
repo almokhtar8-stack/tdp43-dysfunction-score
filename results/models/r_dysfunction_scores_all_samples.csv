@@ -1,0 +1,7 @@
+"sample","condition","ecm_subscore","inflammatory_subscore","survival_subscore","ml_dysfunction_score"
+"SRR10045016","KO",100,97.4,95.5,97.6
+"SRR10045017","KO",97.4,95,94.8,97.2
+"SRR10045018","KO",99.8,100,100,96.8
+"SRR10045019","Rescue",0.9,0.9,0,1.2
+"SRR10045020","Rescue",0.1,0,3.5,2.6
+"SRR10045021","Rescue",0,0.9,5,0.8

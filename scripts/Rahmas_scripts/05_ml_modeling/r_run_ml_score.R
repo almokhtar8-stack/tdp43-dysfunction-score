@@ -537,7 +537,9 @@ if(!is.null(feature_imp)) {
 # ============================================================
 
 cat("\n🎨 Creating visualizations...\n")
-dir.create("results/figures/ml", showWarnings = FALSE, recursive = TRUE)
+# Define the personal figures directory
+personal_fig_dir <- "scripts/Rahmas_scripts/05_ml_modeling/figures/ml"
+dir.create(personal_fig_dir, showWarnings = FALSE, recursive = TRUE)
 
 # --- PLOT 1: Dysfunction Score by Sample ---
 p1 <- ggplot(all_scores,
@@ -563,7 +565,7 @@ p1 <- ggplot(all_scores,
   ) +
   ylim(0, 100)
 
-ggsave("results/figures/ml/dysfunction_score_barplot.png",
+ggsave(file.path(personal_fig_dir, "r_dysfunction_score_barplot.png"),
        p1, width = 8, height = 6, dpi = 300)
 cat("  ✅ Plot 1: Dysfunction score barplot saved\n")
 
@@ -602,7 +604,7 @@ ann_colors <- list(
   Condition = c("KO" = "#E74C3C", "Rescue" = "#3498DB")
 )
 
-png("results/figures/ml/pathway_subscores_heatmap.png",
+png(file.path(personal_fig_dir, "r_pathway_subscores_heatmap.png"),
     width = 2400, height = 1800, res = 300)
 pheatmap(
   subscore_num,
@@ -615,9 +617,9 @@ pheatmap(
   number_format   = "%.0f",
   fontsize         = 12,
   fontsize_number  = 11,
-  main            = "TDP-43 Dysfunction: Pathway Subscores",
-  angle_col       = 0,
-  border_color    = "white"
+  main             = "TDP-43 Dysfunction: Pathway Subscores",
+  angle_col        = 0,
+  border_color     = "white"
 )
 dev.off()
 cat("  ✅ Plot 2: Pathway subscores heatmap saved\n")
@@ -663,7 +665,7 @@ p3 <- ggplot(subscore_long,
   ) +
   ylim(0, 100)
 
-ggsave("results/figures/ml/pathway_subscores_boxplot.png",
+ggsave(file.path(personal_fig_dir, "r_pathway_subscores_boxplot.png"),
        p3, width = 9, height = 6, dpi = 300)
 cat("  ✅ Plot 3: Pathway subscores boxplot saved\n")
 
@@ -690,7 +692,7 @@ if(!is.null(feature_imp)) {
       legend.position = "none"
     )
 
-  ggsave("results/figures/ml/feature_importance.png",
+  ggsave(file.path(personal_fig_dir, "r_feature_importance.png"),
          p4, width = 9, height = 7, dpi = 300)
   cat("  ✅ Plot 4: Feature importance saved\n")
 }
@@ -729,7 +731,7 @@ p5 <- ggplot(all_scores,
   ) +
   ylim(0, 100)
 
-ggsave("results/figures/ml/score_distribution.png",
+ggsave(file.path(personal_fig_dir, "r_score_distribution.png"),
        p5, width = 7, height = 6, dpi = 300)
 cat("  ✅ Plot 5: Score distribution saved\n")
 
@@ -794,15 +796,18 @@ print(all_scores %>%
 
 cat("\n📁 OUTPUT FILES:\n")
 cat("───────────────────────────────\n")
-cat("results/models/dysfunction_score_model.rds\n")
-cat("results/models/dysfunction_scores_all_samples.csv\n")
-cat("results/models/feature_importance.csv\n")
-cat("results/models/model_comparison.csv\n")
-cat("results/figures/ml/dysfunction_score_barplot.png\n")
-cat("results/figures/ml/pathway_subscores_heatmap.png\n")
-cat("results/figures/ml/pathway_subscores_boxplot.png\n")
-cat("results/figures/ml/feature_importance.png\n")
-cat("results/figures/ml/score_distribution.png\n")
+cat("scripts/Rahmas_scripts/05_ml_modeling/results/r_dysfunction_score_model.rds\n")
+cat("scripts/Rahmas_scripts/05_ml_modeling/results/r_dysfunction_scores_all_samples.csv\n")
+cat("scripts/Rahmas_scripts/05_ml_modeling/results/r_feature_importance.csv\n")
+cat("scripts/Rahmas_scripts/05_ml_modeling/results/r_model_comparison.csv\n")
+cat("results/figures/ml/r_feature_importance_annotated.csv\n")
+cat("\n🎨 Creating visualizations...\n")
+cat("───────────────────────────────\n")
+cat("scripts/Rahmas_scripts/05_ml_modeling/figures/ml/r_dysfunction_score_barplot.png\n")
+cat("scripts/Rahmas_scripts/05_ml_modeling/figures/ml/r_pathway_subscores_heatmap.png\n")
+cat("scripts/Rahmas_scripts/05_ml_modeling/figures/ml/r_pathway_subscores_boxplot.png\n")
+cat("scripts/Rahmas_scripts/05_ml_modeling/figures/ml/r_feature_importance.png\n")
+cat("scripts/Rahmas_scripts/05_ml_modeling/figures/ml/r_score_distribution.png\n")
 
 cat("\n🎯 INTERPRETATION:\n")
 cat("───────────────────────────────\n")

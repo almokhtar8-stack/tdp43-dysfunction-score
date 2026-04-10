@@ -66,9 +66,22 @@ bash scripts/Rahmas_scripts/01_quality_control/r_run_qc.sh
 * **Feature Set:** Top 100 genes by absolute log2FC.
 * **Result:** Achieved **Perfect Classification (ROC = 1.0).** The model independently confirmed _TARDBP_ autoregulation and cryptic neuronal program activation.
 
+**How to run:**
+```bash
+Rscript scripts/Rahmas_scripts/05_ml_modeling/r_run_ml_score.R
+```
+
 * ### Phase 7: Robustness Analysis
 * **Objective:** Tested stability of the ECM signature across multiple significance thresholds (Baseline, Strict P, and Strict FC).
 * **Result:** The **Extracellular Matrix (ECM)** signature remained statistically significant in all scenarios, proving the findings are independent of arbitrary p-value or fold-change cutoffs.
+
+**How to run:**
+```bash
+Rscript scripts/Rahmas_scripts/07_robustness/r_test_thresholds.R
+```
+
+**Note on Workspace Isolation:** Phase 5 & 7 scripts and their corresponding outputs are executed and stored within a dedicated sub-directory, independent of the primary project folders. This architectural separation prevents the accidental modification or overwriting of the original team scripts and baseline results. By maintaining isolated environments, we ensure the integrity of the original data while facilitating a direct side-by-side comparison between the initial analysis (Almokhtar’s/Ahmed’s) and the current reproducibility validation (Rahma’s).
+
 ---
 
 ## 3. Benchmarks & Performance

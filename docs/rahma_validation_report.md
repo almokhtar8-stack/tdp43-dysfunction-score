@@ -25,7 +25,50 @@ This report documents the resolution of technical issues encountered during the 
 * **The Warning:** Index built without decoy sequences and headers shorter than k-mer length 31.
 * **The Reason:** Indexing was performed without providing a genome decoy for mapping accuracy.
 * **The Fix:** Treated as non-fatal warnings for the current successful index. Recommended adding the `--decoys` flag for future refinements.
+# Phase 5 & 7 Supplemental Documentation: ML Validation and Robustness
 
+## Overview
+This document details the machine learning (ML) validation of the TDP-43 dysfunction score and the robustness testing of differential expression thresholds. These analyses confirm the stability of the biological signals identified in the primary pipeline.
+
+---
+
+## 5. ML Dysfunction Score Analysis
+
+### Method Summary
+* **Algorithm:** Random Forest using Leave-One-Out Cross-Validation (LOOCV), $n=6$.
+* **Feature Selection:** Top 100 genes by absolute log2 fold change (selected from 617 significant DEGs).
+* **Confirmation:** Elastic Net independently confirmed classification performance.
+
+### Key Findings
+1.  **Classification Performance (ROC = 1.0):** Both individual and group analyses achieved perfect separation between Knockout (KO) and Rescue samples.
+2.  **Dysfunction Score Calibration:** * **KO Samples:** 96.8 – 97.6 (High Dysfunction)
+    * **Rescue Samples:** 0.8 – 2.6 (Low Dysfunction)
+3.  **Biological Consistency (Feature Importance):**
+    The model independently prioritized genes that align with previous enrichment results:
+    * **ECM Dominance:** *TMEM63C* (#1), *IGFN1* (#5), and *FNDC7* (#8) were top predictors.
+    * **Autoregulation:** *TARDBP* (rank 10) was identified as a top discriminating feature, confirming the model's ability to detect TDP-43's known 3'UTR binding autoregulation.
+4.  **Cryptic Transcription:** The appearance of neuronal genes like *SYN1* (#2) and *GABRA1* (#9) in a HeLa cell line suggests the model captured the loss of TDP-43’s role in repressing cryptic neuronal programs.
+
+---
+
+## 7. Robustness Analysis
+
+### Objective
+To verify if the primary biological conclusions—specifically the significance of the Extracellular Matrix (ECM) pathway—remain stable across varying Differential Expression (DE) significance thresholds.
+
+### Threshold Combinations Tested
+| Profile | padj Cutoff | log2FC Cutoff | Resulting Gene Count |
+| :--- | :--- | :--- | :--- |
+| **Baseline** | < 0.05 | > 1.0 | 617 |
+| **Strict P** | < 0.01 | > 1.0 | 515 |
+| **Strict FC** | < 0.05 | > 1.5 | 353 |
+
+### Stability Results
+* **Signature Persistence:** The ECM signature remained statistically significant across all tested thresholds.
+* **Pathway Ranking:** While the specific rank of the ECM pathway shifted (Rank 2 in Baseline vs. Rank 10 in Strict FC), the biological signal remained persistent.
+* **Conclusion:** The findings of this project are highly robust and not dependent on arbitrary thresholding, confirming that the identified biological signals are a true reflection of the experimental conditions.
+
+---
 ## Part 2: Script Evolution and Optimization
 The scripts evolved from basic functional versions to robust pipelines. These changes were made to improve error handling and environment awareness.
 

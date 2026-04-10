@@ -31,44 +31,6 @@ This report documents the resolution of technical issues encountered during the 
 This document details the machine learning (ML) validation of the TDP-43 dysfunction score and the robustness testing of differential expression thresholds. These analyses confirm the stability of the biological signals identified in the primary pipeline.
 
 ---
-
-## 5. ML Dysfunction Score Analysis
-
-### Method Summary
-* **Algorithm:** Random Forest using Leave-One-Out Cross-Validation (LOOCV), $n=6$.
-* **Feature Selection:** Top 100 genes by absolute log2 fold change (selected from 617 significant DEGs).
-* **Confirmation:** Elastic Net independently confirmed classification performance.
-
-### Key Findings
-1.  **Classification Performance (ROC = 1.0):** Both individual and group analyses achieved perfect separation between Knockout (KO) and Rescue samples.
-2.  **Dysfunction Score Calibration:** * **KO Samples:** 96.8 – 97.6 (High Dysfunction)
-    * **Rescue Samples:** 0.8 – 2.6 (Low Dysfunction)
-3.  **Biological Consistency (Feature Importance):**
-    The model independently prioritized genes that align with previous enrichment results:
-    * **ECM Dominance:** *TMEM63C* (#1), *IGFN1* (#5), and *FNDC7* (#8) were top predictors.
-    * **Autoregulation:** *TARDBP* (rank 10) was identified as a top discriminating feature, confirming the model's ability to detect TDP-43's known 3'UTR binding autoregulation.
-4.  **Cryptic Transcription:** The appearance of neuronal genes like *SYN1* (#2) and *GABRA1* (#9) in a HeLa cell line suggests the model captured the loss of TDP-43’s role in repressing cryptic neuronal programs.
-
----
-
-## 7. Robustness Analysis
-
-### Objective
-To verify if the primary biological conclusions—specifically the significance of the Extracellular Matrix (ECM) pathway—remain stable across varying Differential Expression (DE) significance thresholds.
-
-### Threshold Combinations Tested
-| Profile | padj Cutoff | log2FC Cutoff | Resulting Gene Count |
-| :--- | :--- | :--- | :--- |
-| **Baseline** | < 0.05 | > 1.0 | 617 |
-| **Strict P** | < 0.01 | > 1.0 | 515 |
-| **Strict FC** | < 0.05 | > 1.5 | 353 |
-
-### Stability Results
-* **Signature Persistence:** The ECM signature remained statistically significant across all tested thresholds.
-* **Pathway Ranking:** While the specific rank of the ECM pathway shifted (Rank 2 in Baseline vs. Rank 10 in Strict FC), the biological signal remained persistent.
-* **Conclusion:** The findings of this project are highly robust and not dependent on arbitrary thresholding, confirming that the identified biological signals are a true reflection of the experimental conditions.
-
----
 ## Part 2: Script Evolution and Optimization
 The scripts evolved from basic functional versions to robust pipelines. These changes were made to improve error handling and environment awareness.
 
@@ -116,3 +78,77 @@ A comparative analysis was performed between the outputs of **Almokhtar's origin
 - Salmon index built and validated.
 - Data integrity verified for all 6 samples.
 - **Note:** Analysis results remain identical between the first and second versions of the scripts; optimization was focused strictly on code robustness, path flexibility, and error handling.
+
+- # Phase 5 & 7 Supplemental Documentation: ML Validation and Robustness
+
+## Overview
+This document details the machine learning (ML) validation of the TDP-43 dysfunction score and the robustness testing of differential expression thresholds. These analyses confirm the stability of the biological signals identified in the primary pipeline.
+
+---
+
+## Phase 5: ML Dysfunction Score Analysis
+
+### Method Summary
+* **Algorithm:** Random Forest using Leave-One-Out Cross-Validation (LOOCV), $n=6$.
+* **Feature Selection:** Top 100 genes by absolute log2 fold change (selected from 617 significant DEGs).
+* **Confirmation:** Elastic Net independently confirmed classification performance.
+
+### Key Findings
+1.  **Classification Performance (ROC = 1.0):** Both individual and group analyses achieved perfect separation between Knockout (KO) and Rescue samples.
+2.  **Dysfunction Score Calibration:** * **KO Samples:** 96.8 – 97.6 (High Dysfunction)
+    * **Rescue Samples:** 0.8 – 2.6 (Low Dysfunction)
+3.  **Biological Consistency (Feature Importance):**
+    The model independently prioritized genes that align with previous enrichment results:
+    * **ECM Dominance:** *TMEM63C* (#1), *IGFN1* (#5), and *FNDC7* (#8) were top predictors.
+    * **Autoregulation:** *TARDBP* (rank 10) was identified as a top discriminating feature, confirming the model's ability to detect TDP-43's known 3'UTR binding autoregulation.
+4.  **Cryptic Transcription:** The appearance of neuronal genes like *SYN1* (#2) and *GABRA1* (#9) in a HeLa cell line suggests the model captured the loss of TDP-43’s role in repressing cryptic neuronal programs.
+
+---
+
+## Phase 7: Robustness Analysis
+
+### Objective
+To verify if the primary biological conclusions—specifically the significance of the Extracellular Matrix (ECM) pathway—remain stable across varying Differential Expression (DE) significance thresholds.
+
+### Threshold Combinations Tested
+| Profile | padj Cutoff | log2FC Cutoff | Resulting Gene Count |
+| :--- | :--- | :--- | :--- |
+| **Baseline** | < 0.05 | > 1.0 | 617 |
+| **Strict P** | < 0.01 | > 1.0 | 515 |
+| **Strict FC** | < 0.05 | > 1.5 | 353 |
+
+### Stability Results
+* **Signature Persistence:** The ECM signature remained statistically significant across all tested thresholds.
+* **Pathway Ranking:** While the specific rank of the ECM pathway shifted (Rank 2 in Baseline vs. Rank 10 in Strict FC), the biological signal remained persistent.
+* **Conclusion:** The findings of this project are highly robust and not dependent on arbitrary thresholding, confirming that the identified biological signals are a true reflection of the experimental conditions.
+
+---
+# Phase 5 & 7: Development & Troubleshooting Log
+
+## Overview
+This log documents the technical hurdles encountered during the machine learning modeling (Phase 5) and the robustness analysis (Phase 7). It serves as a reference for maintaining a clean project structure and consistent workflow.
+
+---
+
+## 🛠 Error & Resolution Log
+
+| Error / Challenge | Technical Reason | Corrective Action (Troubleshooting) |
+| :--- | :--- | :--- |
+| **"Fatal error: cannot open file... No such file or directory"** | **Working Directory Mismatch:** The terminal was inside the `07_robustness` folder, but the R script was looking for a `results/` folder relative to the project root. | Reset the terminal session to the project root (`/mnt/h/KAUST/tdp43-dysfunction-score`) and called the script using the full relative path. |
+| **"Russian Doll" Nested Directories** | **Relative Path Confusion:** Running `mkdir -p tdp43-dysfunction-score/...` while already inside the project created a duplicate project folder structure inside the real directory. | Used `rm -rf` to purge the redundant nested folders and verified the cleanup using the `tree` command. |
+| **"cannot open the connection" (write.csv error)** | **Path Over-specification:** The R script's `write.csv` path included the root folder name, causing R to look for a non-existent subdirectory. | Updated the `write.csv` line in `r_test_thresholds.R` to use proper relative paths starting from `scripts/`. |
+| **Git: "Changes not staged" (Validation Noise)** | **Untracked Data Overhead:** Heavy validation generated large `.fastq.gz` and `.log` files that cluttered the `git status` output. | Implemented targeted staging using `git add scripts/Rahmas_scripts/07_robustness/` to isolate code and results from raw genomic data. |
+| **Permission Denied** | **File Permissions:** New scripts created via `nano` or `touch` lack execution bits by default. | Applied `chmod +x` to the script or executed it explicitly via the `Rscript` command. |
+
+---
+
+## 🚀 Final Workflow Best Practices
+Based on the challenges above, the following "Best Practice" workflow was established for all subsequent project phases:
+
+1.  **Anchor at the Root:** Maintain the terminal session at the project root (`/mnt/h/KAUST/tdp43-dysfunction-score`) at all times.
+2.  **Relative Pathing Strategy:** All R and Bash file paths must be written starting from `scripts/` or `data/`. Never include the project folder name (`tdp43-dysfunction-score`) in internal script paths.
+3.  **Visual Validation:** Use the `tree` command regularly when creating new directories to prevent accidental nesting.
+4.  **Selective Staging:** Avoid `git add .` to prevent pushing large genomic datasets. Use specific directory paths to keep the repository lean and efficient.
+
+---
+**Status:** All technical hurdles resolved.

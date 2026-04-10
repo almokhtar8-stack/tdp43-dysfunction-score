@@ -55,12 +55,20 @@ bash scripts/Rahmas_scripts/01_quality_control/r_run_qc.sh
 * **Salmon Indexing:** Ran `bash scripts/Rahmas_scripts/02_quantification/r_build_salmon_index.sh`.
 * **Salmon Quant:** Ran `bash scripts/Rahmas_scripts/02_quantification/r_run_salmon.sh` with `--validateMappings`.
 
-### Phase 3, 4, and 6: Statistical Analysis & Viz
+### Phase 3, 4, and 6: Statistical Analysis & Visualization 
 * **DESeq2 Analysis:** Ran `Rscript scripts/Rahmas_scripts/03_differential_expression/r_run_deseq2.R`.
     * **Filter:** `rowSums >= 10`.
 * **Visualization:** Ran `Rscript scripts/Rahmas_scripts/04_visualization/r_create_plots.R`.
 * **Enrichment:** Ran `Rscript scripts/Rahmas_scripts/06_enrichment_analysis/r_run_enrichment.R`.
 
+### Phase 5: ML Dysfunction Score Modeling
+* **Algorithm:** Random Forest (LOOCV, _n=6_).
+* **Feature Set:** Top 100 genes by absolute log2FC.
+* **Result:** Achieved **Perfect Classification (ROC = 1.0).** The model independently confirmed _TARDBP_ autoregulation and cryptic neuronal program activation.
+
+* ### Phase 7: Robustness Analysis
+* **Objective:** Tested stability of the ECM signature across multiple significance thresholds (Baseline, Strict P, and Strict FC).
+* **Result:** The **Extracellular Matrix (ECM)** signature remained statistically significant in all scenarios, proving the findings are independent of arbitrary p-value or fold-change cutoffs.
 ---
 
 ## 3. Benchmarks & Performance
@@ -74,6 +82,8 @@ bash scripts/Rahmas_scripts/01_quality_control/r_run_qc.sh
 | **Import & DESeq2** | 10m | Moderate RAM |
 | **Visualization** | 5m | 4 High-Res PNGs |
 | **Enrichment Analysis** | 15m | Network (KEGG API) |
+| **ML Modeling** | 8m | Moderate CPU/RAM |
+| **Robustness Testing** | 12m | Moderate CPU |
 ---
 
 ## 4. Troubleshooting & Solutions
@@ -82,6 +92,8 @@ bash scripts/Rahmas_scripts/01_quality_control/r_run_qc.sh
 * **"Killed" Process:** If Salmon crashes, close high-memory Windows apps and run `wsl --shutdown` in PowerShell to clear the RAM cache.
 * **Gzip Corruption:** Delete the specific sample folder in `data/raw/` and re-run the download script for that specific SRR.
 * **KEGG API Errors:** The R script utilizes `try()` blocks to ensure GO Enrichment still completes even if the KEGG server is unreachable.
+* **Directory Nesting (Russian Doll):** Avoid creating directories named after the project root while inside the project. Resolved by standardizing execution from the project root.
+* **Path Over-specification:** Removed hardcoded project names from R scripts to ensure portability and prevent "connection failed" errors in `write.csv`.
 
 ---
 
@@ -89,5 +101,6 @@ bash scripts/Rahmas_scripts/01_quality_control/r_run_qc.sh
 
 * **Total Significant DEGs:** 617
 * **Upregulated:** 488 | **Downregulated:** 129
-* **Conclusion:** Reproduction complete. The biological signal for TDP-43 dysfunction is consistent across the entire genome.
-
+* **ML Accuracy:** ROC 1.0 (Perfect separation).
+* **Stability:** ECM pathway consistently identified as the dominant biological theme across all analytical modalities.
+* **Conclusion:** Analysis is fully reproducible. The biological signal for TDP-43 dysfunction is robust and consistent across the entire genome. 

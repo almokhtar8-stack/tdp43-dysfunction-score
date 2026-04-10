@@ -1,6 +1,6 @@
 **Project:** TDP-43 Dysfunction Score  
 **Scope:** Complete Human Genome (Chr 1-22, X)  
-**Author:** Rahma  
+**Author:** Rahma Abufoor
 **Environment:** WSL2 (Ubuntu) on Microsoft Surface Pro  
 **Data Source:** SRA Samples SRR10045016–SRR10045021  
 

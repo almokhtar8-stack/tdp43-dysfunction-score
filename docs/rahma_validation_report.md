@@ -75,7 +75,7 @@ The scripts evolved from basic functional versions to robust pipelines. These ch
 * **The Change:** Redirected output to a dedicated, script-specific directory.
 * **Ahmed's code:** `write.csv(results_table, "results/tables/robustness_analysis.csv", row.names = FALSE)`
 * **Rahma's code:** `write.csv(results_table, "scripts/Rahmas_scripts/07_robustness/results/r_robustness_analysis.csv", row.names = FALSE)`
-* **The Impact:** Organizes validation results within your personal project sub-folder rather than the general results directory, maintaining a cleaner overall project structure.
+* **The Impact:** Organizes validation results within Rahma's personal project sub-folder rather than the general results directory, maintaining a cleaner overall project structure.
 
 ## Part 3: Results Verification
 A comparative analysis was performed between the outputs of **Almokhtar's original code** and **Rahma's reproduced code**. 

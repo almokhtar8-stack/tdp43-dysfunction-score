@@ -59,6 +59,24 @@ The scripts evolved from basic functional versions to robust pipelines. These ch
 * **Rahma's code:** `kegg_up <- try(enrichKEGG(gene = up_entrez, ...), silent = TRUE)`
 * **The Impact:** Prevents the entire enrichment pipeline from crashing if the KEGG servers are down or the internet connection is unstable.
 
+### 6. run_ml_score.R
+* **The Change:** Standardized the software environment by implementing a global repository mirror.
+* **Almokhtar's code:** `if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")`
+* **Rahma's code:** `options(repos = c(CRAN = "https://cloud.r-project.org"))`
+* **The Impact:** Prevents script execution failures in non-interactive terminal environments by ensuring a default CRAN mirror is always available for package installation.
+
+* ### 7. run_ml_score.R
+* **The Change:** Refined feature importance extraction and output file naming for version control.
+* **Almokhtar's code:** `write.csv(feature_imp, "results/models/feature_importance.csv", row.names = FALSE)`
+* **Rahma's code:** `write.csv(feature_imp, "results/models/r_feature_importance.csv", row.names = FALSE)`
+* **The Impact:** Clearly distinguishes Rahma's validated model features from the original team results, preventing accidental overwriting of files during comparative analysis.
+
+* ### 8. test_thresholds.R
+* **The Change:** Redirected output to a dedicated, script-specific directory.
+* **Ahmed's code:** `write.csv(results_table, "results/tables/robustness_analysis.csv", row.names = FALSE)`
+* **Rahma's code:** `write.csv(results_table, "scripts/Rahmas_scripts/07_robustness/results/r_robustness_analysis.csv", row.names = FALSE)`
+* **The Impact:** Organizes validation results within your personal project sub-folder rather than the general results directory, maintaining a cleaner overall project structure.
+
 ## Part 3: Results Verification
 A comparative analysis was performed between the outputs of **Almokhtar's original code** and **Rahma's reproduced code**. 
 

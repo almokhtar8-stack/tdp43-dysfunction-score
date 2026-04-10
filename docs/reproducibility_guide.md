@@ -80,7 +80,8 @@ Rscript scripts/Rahmas_scripts/05_ml_modeling/r_run_ml_score.R
 Rscript scripts/Rahmas_scripts/07_robustness/r_test_thresholds.R
 ```
 
-**Note on Workspace Isolation:** Phase 5 & 7 scripts and their corresponding outputs are executed and stored within a dedicated sub-directory, independent of the primary project folders. This architectural separation prevents the accidental modification or overwriting of the original team scripts and baseline results. By maintaining isolated environments, we ensure the integrity of the original data while facilitating a direct side-by-side comparison between the initial analysis (Almokhtar’s/Ahmed’s) and the current reproducibility validation (Rahma’s).
+
+**Note on Workspace Isolation:** These scripts and their corresponding outputs are executed and stored within a dedicated sub-directory, independent of the primary project folders. This architectural separation prevents the accidental modification or overwriting of the original team scripts and baseline results. By maintaining isolated environments, we ensure the integrity of the original data while facilitating a direct side-by-side comparison between the initial analysis (Almokhtar’s/Ahmed’s) and the current reproducibility validation (Rahma’s).
 
 ---
 

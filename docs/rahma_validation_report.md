@@ -85,7 +85,8 @@ A comparative analysis was performed between the outputs of **Almokhtar's origin
 
 ### Key Findings
 1.  **Classification Performance (ROC = 1.0):** Both individual and group analyses achieved perfect separation between Knockout (KO) and Rescue samples.
-2.  **Dysfunction Score Calibration:** * **KO Samples:** 96.8 – 97.6 (High Dysfunction)
+2.  **Dysfunction Score Calibration:**
+    * **KO Samples:** 96.8 – 97.6 (High Dysfunction)
     * **Rescue Samples:** 0.8 – 2.6 (Low Dysfunction)
 3.  **Biological Consistency (Feature Importance):**
     The model independently prioritized genes that align with previous enrichment results:

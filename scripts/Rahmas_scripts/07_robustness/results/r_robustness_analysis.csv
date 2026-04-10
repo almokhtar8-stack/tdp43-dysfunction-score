@@ -1,0 +1,4 @@
+"threshold","padj_cutoff","log2fc_cutoff","n_genes","top_pathway","ecm_rank","ecm_pval"
+"baseline",0.05,1,617,"sensory perception of pain",2,0.00982516369523454
+"strict_p",0.01,1,515,"sensory perception of pain",3,0.0410008108357381
+"strict_fc",0.05,1.5,353,"positive regulation of immune effector process",10,0.0301427585484841

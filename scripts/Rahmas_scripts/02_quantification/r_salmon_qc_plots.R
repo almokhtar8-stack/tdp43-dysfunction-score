@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 # Salmon QC Plots
-# Date: Feb 14, 2026
+# Date: March 20, 2026
 # Purpose: Generate QC visualizations from Salmon metadata
 
 cat("==================================================\n")

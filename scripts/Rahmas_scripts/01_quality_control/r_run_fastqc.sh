@@ -1,6 +1,6 @@
 #!/bin/bash
 # Quality Control - FastQC on all samples
-# Date: Feb 14, 2026
+# Date: March 20, 2026
 # Working directory: ~/tdp43-dysfunction-score
 
 echo "=========================================="

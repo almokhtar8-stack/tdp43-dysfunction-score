@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 # Pathway Enrichment Analysis
-# Date: Feb 14, 2026
+# Date: March 20, 2026
 # Purpose: GO/KEGG enrichment of TDP-43 DE genes
 
 cat("==================================================\n")

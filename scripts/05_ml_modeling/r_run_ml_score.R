@@ -4,7 +4,7 @@
 # "Result Validation" 
 # Phase 5: TDP-43 Dysfunction Score - ML Modeling
 # Project: TDP-43 Dysfunction Score
-# Author: Almokhtar Aljarodi + Team
+# Author: Rahma Abufoor
 # Date: April 2026
 # ============================================================
 

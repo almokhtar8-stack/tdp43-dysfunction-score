@@ -25,11 +25,6 @@ This report documents the resolution of technical issues encountered during the 
 * **The Warning:** Index built without decoy sequences and headers shorter than k-mer length 31.
 * **The Reason:** Indexing was performed without providing a genome decoy for mapping accuracy.
 * **The Fix:** Treated as non-fatal warnings for the current successful index. Recommended adding the `--decoys` flag for future refinements.
-# Phase 5 & 7 Supplemental Documentation: ML Validation and Robustness
-
-## Overview
-This document details the machine learning (ML) validation of the TDP-43 dysfunction score and the robustness testing of differential expression thresholds. These analyses confirm the stability of the biological signals identified in the primary pipeline.
-
 ---
 ## Part 2: Script Evolution and Optimization
 The scripts evolved from basic functional versions to robust pipelines. These changes were made to improve error handling and environment awareness.
@@ -78,11 +73,6 @@ A comparative analysis was performed between the outputs of **Almokhtar's origin
 - Salmon index built and validated.
 - Data integrity verified for all 6 samples.
 - **Note:** Analysis results remain identical between the first and second versions of the scripts; optimization was focused strictly on code robustness, path flexibility, and error handling.
-
-- # Phase 5 & 7 Supplemental Documentation: ML Validation and Robustness
-
-## Overview
-This document details the machine learning (ML) validation of the TDP-43 dysfunction score and the robustness testing of differential expression thresholds. These analyses confirm the stability of the biological signals identified in the primary pipeline.
 
 ---
 

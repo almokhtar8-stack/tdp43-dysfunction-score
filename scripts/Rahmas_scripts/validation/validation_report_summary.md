@@ -1,9 +1,7 @@
-# Validation Report: Pipeline Accuracy
+## Results Summary (GSE124439)
+*Status: Initial Setup & Quality Control Complete*
 
-## Results Summary
-The pipeline successfully reproduced the benchmark metrics for the Clinical dataset (GSE116622). 
-
-## Performance Metrics
-- **Mapping Rate:** Consistent with published data.
-- **DEG Count:** 617 significant genes.
-- **Pathway Enrichment:** Successfully identified Extracellular Matrix Organization and PI3K-Akt signaling pathways.
+### Performance Metrics
+- **Mapping Rate:** Pending (Step 02: Quantification)
+- **DEG Count:** Pending (Step 03: Differential Expression)
+- **Pathway Enrichment:** Pending (Step 04: Enrichment Analysis)

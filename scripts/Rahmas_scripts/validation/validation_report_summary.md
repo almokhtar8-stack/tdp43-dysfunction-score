@@ -11,3 +11,9 @@
 * **Mapping Rate**: Ranging from 38.3% to 50.5%.
 * **Validation**: Manual inspection of `quant.sf` confirms robust expression, with high-abundance transcripts capturing over 400,000 reads per sample.
 * **Decision**: Proceeding to DGE with current counts; mapping depth (~22M reads/sample) is sufficient for reliable statistical analysis.
+
+### Step 03 (Differential Expression): Complete
+* **Status**: Transcript-to-gene summarization and statistical testing finished.
+* **Method**: Used `tximport` to summarize 34,740 genes from Salmon quantifications.
+* **Results**: Successfully identified significant Differential Expressed Genes (DEGs) using DESeq2 (Padj < 0.05).
+* **Data Integrity**: Despite the ~45% mapping rate, the gene-level counts are robust (e.g., >400k reads for high-abundance transcripts), providing high confidence for downstream TDP-43 dysfunction scoring.

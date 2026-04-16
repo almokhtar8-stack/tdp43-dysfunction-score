@@ -106,13 +106,18 @@ p3 <- ggplot(sub_long, aes(x=Pathway, y=Score, fill=condition)) +
   theme_minimal() + labs(title="Distribution of Biological Drivers")
 ggsave(file.path(FIGURES_DIR, "pathway_subscores_boxplot.png"), p3, width=7, height=5)
 
-# V4: Feature Importance (Top 20)
-rf_imp <- varImp(model_rf)$importance
-feature_imp <- data.frame(gene = rownames(rf_imp), importance = rf_imp$Overall) %>% arrange(desc(importance))
-p4 <- ggplot(head(feature_imp, 20), aes(x=reorder(gene, importance), y=importance)) +
-  geom_bar(stat="identity", fill="#2C3E50") + coord_flip() +
-  theme_minimal() + labs(title="Top 20 Predictive Features", x="Ensembl ID", y="Importance")
-ggsave(file.path(FIGURES_DIR, "feature_importance_plot.png"), p4, width=8, height=8)
+# V4: Feature Importance (Top 20 with Symbols)
+# Load the annotated file we created earlier
+feat_annotated <- read.csv(file.path(MODELS_DIR, "feature_importance_annotated_local.csv"))
+
+p4 <- ggplot(head(feat_annotated, 20), aes(x = reorder(symbol, importance), y = importance)) +
+  geom_bar(stat = "identity", fill = "#2C3E50") + 
+  coord_flip() +
+  theme_minimal() + 
+  labs(title = "Top 20 Predictive Features", x = "Gene Symbol", y = "Importance Score") +
+  theme(axis.text.y = element_text(face = "bold"))
+
+ggsave(file.path(FIGURES_DIR, "feature_importance_plot.png"), p4, width = 8, height = 8)
 
 # V5: Score Distribution Histogram
 p5 <- ggplot(all_scores, aes(x=ml_dysfunction_score, fill=condition)) +

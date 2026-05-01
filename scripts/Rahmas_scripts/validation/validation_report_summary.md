@@ -1,5 +1,16 @@
 ## Validation Report: Pipeline Accuracy (GSE124439)
 
+### 00_Set up & Data Acquisition
+* **Environment & Repository Setup**
+* The analysis environment was containerized using Conda to ensure reproducibility. Key tools installed include Salmon for quantification, fastp for preprocessing, and the DESeq2 suite within R. The project structure is organized into /scripts, /data, and /results, with version control managed via Git to track refinements in the scoring algorithm.
+
+* **Data Acquisition (GSE124439)**
+* Raw FASTQ files were retrieved from the NCBI Gene Expression Omnibus (GEO) under accession GSE124439. This dataset was selected due to its high-quality sequencing of human post-mortem brain tissue, providing a robust foundation for validating the TDP-43 dysfunction model.
+
+* **Sample Selection Justification**
+* For this validation, 18 samples (9 ALS, 9 Control) were specifically sub-selected from the Frontal Cortex.
+
+* The choice of the Frontal Cortex as the primary tissue for calculating TDP-43 dysfunction scores was based on its optimal balance of high pathological burden and manageable cellular heterogeneity [3, 4]. Unlike the midbrain or axillary spinal cord sections—which often present significant "noise" due to high white matter content and diverse non-neuronal cell populations—the frontal cortex provides a concentrated signal of nuclear TDP-43 depletion and associated transcriptomic changes, such as cryptic splicing [2]. This region is a known focal point for phosphorylated TDP-43 aggregates in both ALS and FTLD, ensuring that the resulting dysfunction scores accurately reflect the molecular loss of function rather than anatomical dilution [1, 3]. By prioritizing this area, the analysis maximizes the signal-to-noise ratio, facilitating a more robust characterization of the disease's genomic footprint across the CNS.
 ### Step 01 (Quality Control): Complete
 * **Status**: Successfully validated via MultiQC.
 * **Quality**: All 18 samples show excellent Phred scores (>35).
@@ -102,3 +113,13 @@ The Random Forest model identified a robust biological signature. The top 20 gen
 | 20 | **SAXO1** | 58.6 | Stabilizer of axonemal microtubules; critical for axonal health. |
 
 **Final Validation Conclusion**: The pipeline is **fully validated**. The overlap between statistical importance and markers of **microtubule stability (SAXO1)**, **cytoskeletal integrity (MYL5)**, and **proteostatic stress (HSPB1)** confirms the model identifies TDP-43 dysfunction in human ALS pathology with high sensitivity (0.9\%$) and biological accuracy.
+
+**Refrences** 
+
+* 1.Neumann, M., et al. (2006). "Ubiquitinated TDP-43 in Frontotemporal Lobar Degeneration and Amyotrophic Lateral Sclerosis." Science.
+
+* 2.Ling, J. P., et al. (2015). "TDP-43 repression of nonconservative cryptic exons is compromised in ALS-FTD." Science.
+
+* 3.Mackenzie, I. R., et al. (2007). "The neuropathology of frontotemporal lobar degeneration with TDP-43-positive inclusions." Brain.
+
+* 4.Prasad, A., et al. (2019). "TDP-43 Mislocalization and Aggregation in ALS and FTLD." Frontiers in Molecular Neuroscience.

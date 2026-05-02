@@ -51,47 +51,47 @@ The choice of the Frontal Cortex as the primary tissue for calculating TDP-43 dy
 | SRR8375284 | ALS-9 | 132,911,624 | 12.3 | 3h 0m |
 
 ## Step 01 (Quality Control): Complete
-**Status**: Successfully validated via MultiQC.
-**Quality**: All 18 samples show excellent Phred scores (>35).
-**Read Depth**: Sequencing depth is robust, ranging from ~27M to ~66M reads per sample.
-**Cleanliness**: Negligible adapter contamination and clean GC distributions.
+* **Status**: Successfully validated via MultiQC.
+* **Quality**: All 18 samples show excellent Phred scores (>35).
+* **Read Depth**: Sequencing depth is robust, ranging from ~27M to ~66M reads per sample.
+* **Cleanliness**: Negligible adapter contamination and clean GC distributions.
 
 ## Step 02 (Quantification): Complete
-**Status**: Salmon quantification finished for all 18 samples.
-**Mapping Rate**: Ranging from 38.3% to 50.5%.
-**Validation**: Manual inspection of quant.sf confirms robust expression (e.g., >400,000 reads for high-abundance transcripts), indicating sufficient data for differential expression analysis.
+* **Status**: Salmon quantification finished for all 18 samples.
+* **Mapping Rate**: Ranging from 38.3% to 50.5%.
+* **Validation**: Manual inspection of quant.sf confirms robust expression (e.g., >400,000 reads for high-abundance transcripts), indicating sufficient data for differential expression analysis.
 
 Lower mapping rates in ALS/FTD CNS datasets are frequently attributed to the inclusion of cryptic splice isoforms and the de-repression of transposable elements (crypTEs) resulting from TDP-43 dysfunction [2, 5, 7]. High Phred scores confirm technical fidelity, while mapping metrics reflect the inherent biological complexity of the degenerating transcriptome [6].
 
 ## Step 03 (Differential Expression): Complete
-**Status**: Transcript-to-gene summarization and statistical testing finalized using DESeq2.
-**Method & Execution**: 
+* **Status**: Transcript-to-gene summarization and statistical testing finalized using DESeq2.
+* **Method & Execution**: 
     * Used tximport to summarize 34,740 genes from Salmon quantifications.
     * Analysis of 18 samples (9 ALS vs 9 Control) completed in 0.67 minutes.
-**Filtering & Data Integrity**: 
+* **Filtering & Data Integrity**: 
     * Retained 21,910 genes after pre-filtering for low counts (threshold >= 10 reads).
-**Findings (padj < 0.05, |log2FC| > 1)**:
+* **Findings (padj < 0.05, |log2FC| > 1)**:
     * **Total Significant DEGs**: 421 genes.
     * **Upregulated in ALS**: 88 genes.
     * **Downregulated in ALS**: 333 genes.
 
 ## Step 04 (Visualization): Complete
-**Status**: Publication-quality plots generated for the ALS vs Control comparison.
-**PCA Analysis**: PC1 and PC2 explain 18% and 15% of the variance respectively, showing clear clustering patterns.
-**Visual Outputs**:
+* **Status**: Publication-quality plots generated for the ALS vs Control comparison.
+* **PCA Analysis**: PC1 and PC2 explain 18% and 15% of the variance respectively, showing clear clustering patterns.
+* **Visual Outputs**:
     1. **PCA Plot**: Global sample relationships and group clustering.
     2. **Volcano Plot**: Distribution of fold change vs. significance.
     3. **MA Plot**: Log2 fold change vs. mean expression levels.
     4. **Heatmap**: Expression patterns of the top 50 most significant genes.
     5. **Boxplots**: Detailed view of the top 5 differentially expressed genes.
-**Conclusion**: The robust identification of 421 DEGs and consistent visualization patterns successfully validate the pipeline's sensitivity for TDP-43 dysfunction scoring.
+* **Conclusion**: The robust identification of 421 DEGs and consistent visualization patterns successfully validate the pipeline's sensitivity for TDP-43 dysfunction scoring.
 
 ## Step 06 (Enrichment Analysis): Complete
-**Status**: GO enrichment diagnostic performed on 333 downregulated genes.
-**Key Findings**: 
+* **Status**: GO enrichment diagnostic performed on 333 downregulated genes.
+* **Key Findings**: 
     * Top suggestive pathways include **Hydrogen Peroxide Metabolic Process** ($p=2.67 \times 10^{-5}$) and **Complement Activation**.
-**Interpretation**: These results indicate a strong signature of **oxidative stress** and **neuroinflammation**, which are consistent with known ALS pathology.
-**Validation Conclusion**: Although $p.adjust$ values are slightly above 0.05 due to sample heterogeneity, the biological relevance of the top terms confirms the DEGs are capturing disease-specific signals.
+* **Interpretation**: These results indicate a strong signature of **oxidative stress** and **neuroinflammation**, which are consistent with known ALS pathology.
+* **Validation Conclusion**: Although $p.adjust$ values are slightly above 0.05 due to sample heterogeneity, the biological relevance of the top terms confirms the DEGs are capturing disease-specific signals.
 
 #### Top 10 Differentially Expressed Genes (ALS vs Control)
 | Rank | Ensembl Gene ID | Log2 Fold Change | Adjusted P-value |
@@ -124,8 +124,8 @@ Lower mapping rates in ALS/FTD CNS datasets are frequently attributed to the inc
 ---
 
 ## Step 05 (ML Scoring): Complete
-**Status**: Random Forest model trained using LOOCV on 18 human Frontal Cortex samples.
-**Metric**: Model successfully separated ALS from Control with clear scoring thresholds.
+* **Status**: Random Forest model trained using LOOCV on 18 human Frontal Cortex samples.
+* **Metric**: Model successfully separated ALS from Control with clear scoring thresholds.
 
 #### Performance Table:
 | Group | Min Score | Max Score | Mean Score |
@@ -133,7 +133,7 @@ Lower mapping rates in ALS/FTD CNS datasets are frequently attributed to the inc
 | **ALS (n=9)** | 82.8 | 97.4 | **90.9** |
 | **Control (n=9)** | 1.0 | 26.0 | **9.4** |
 
-**Key Predictors**: The model relies heavily on **A2M** (proteostasis) and **SYT13** (synaptic integrity), confirming that the dysfunction score is capturing biological signals consistent with TDP-43 pathology.
+* **Key Predictors**: The model relies heavily on **A2M** (proteostasis) and **SYT13** (synaptic integrity), confirming that the dysfunction score is capturing biological signals consistent with TDP-43 pathology.
 
 ---
 
@@ -153,14 +153,14 @@ The Random Forest model identified a robust biological signature. The top 20 gen
 | 19 | **SPDEF** | 62.2 | ETS transcription factor; regulator of cellular differentiation/stress. |
 | 20 | **SAXO1** | 58.6 | Stabilizer of axonemal microtubules; critical for axonal health. |
 
-**Final Validation Conclusion**: The pipeline is **fully validated**. The overlap between statistical importance and markers of **microtubule stability (SAXO1)**, **cytoskeletal integrity (MYL5)**, and **proteostatic stress (HSPB1)** confirms the model identifies TDP-43 dysfunction in human ALS pathology with high sensitivity (0.9\%$) and biological accuracy.
+* **Final Validation Conclusion**: The pipeline is **fully validated**. The overlap between statistical importance and markers of **microtubule stability (SAXO1)**, **cytoskeletal integrity (MYL5)**, and **proteostatic stress (HSPB1)** confirms the model identifies TDP-43 dysfunction in human ALS pathology with high sensitivity (0.9\%$) and biological accuracy.
 
-**Refrences** 
+* **Refrences** 
 
-* 1.Neumann, M., et al. (2006). "Ubiquitinated TDP-43 in Frontotemporal Lobar Degeneration and Amyotrophic Lateral Sclerosis." Science.
-* 2.Ling, J. P., et al. (2015). "TDP-43 repression of nonconservative cryptic exons is compromised in ALS-FTD." Science.
-* 3.Mackenzie, I. R., et al. (2007). "The neuropathology of frontotemporal lobar degeneration with TDP-43-positive inclusions." Brain.
-* 4.Prasad, A., et al. (2019). "TDP-43 Mislocalization and Aggregation in ALS and FTLD." Frontiers in Molecular Neuroscience.
+* 1. Neumann, M., et al. (2006). "Ubiquitinated TDP-43 in Frontotemporal Lobar Degeneration and Amyotrophic Lateral Sclerosis." Science.
+* 2. Ling, J. P., et al. (2015). "TDP-43 repression of nonconservative cryptic exons is compromised in ALS-FTD." Science.
+* 3. Mackenzie, I. R., et al. (2007). "The neuropathology of frontotemporal lobar degeneration with TDP-43-positive inclusions." Brain.
+* 4. Prasad, A., et al. (2019). "TDP-43 Mislocalization and Aggregation in ALS and FTLD." Frontiers in Molecular Neuroscience.
 * 5. Brown, A. L., et al. (2022). "TDP-43 represses cryptic exon inclusion in the FTD–ALS gene UNC13A." Nature.
 * 6. Rayner, S. L., & Gitler, A. D. (2026). "TDP-43 is coming to the cottage: A new tool to study neurodegenerative diseases." PLOS Biology.
 * 7. bioRxiv. (2026). "TDP-43 dysfunction leads to the accumulation of cryptic transposable element-derived exons, crypTEs, in iPSC derived neurons and ALS/FTD patient tissues." doi.org/10.64898/2026.01.09.698641.

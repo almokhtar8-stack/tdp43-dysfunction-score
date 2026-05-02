@@ -153,7 +153,7 @@ The Random Forest model identified a robust biological signature. The top 20 gen
 | 19 | **SPDEF** | 62.2 | ETS transcription factor; regulator of cellular differentiation/stress. |
 | 20 | **SAXO1** | 58.6 | Stabilizer of axonemal microtubules; critical for axonal health. |
 
-* **Final Validation Conclusion**: The pipeline is **fully validated**. The overlap between statistical importance and markers of **microtubule stability (SAXO1)**, **cytoskeletal integrity (MYL5)**, and **proteostatic stress (HSPB1)** confirms the model identifies TDP-43 dysfunction in human ALS pathology with high sensitivity (0.9\%$) and biological accuracy.
+* **Final Validation Conclusion**: The pipeline is **fully validated**. The overlap between statistical importance and markers of **microtubule stability (SAXO1)**, **cytoskeletal integrity (MYL5)**, and **proteostatic stress (HSPB1)** confirms the model identifies TDP-43 dysfunction in human ALS pathology with high sensitivity ($0.9\%$) and biological accuracy.
 
 * **Refrences** 
 

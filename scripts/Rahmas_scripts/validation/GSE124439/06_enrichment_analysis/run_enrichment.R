@@ -59,7 +59,7 @@ down_entrez <- convert_ids(down_genes$gene_id)
 # ============================================
 cat("Step 3 [", format(Sys.time(), "%H:%M:%S"), "]: Running GO BP Enrichment (Upregulated)...\n")
 go_start <- Sys.time()
-go_bp_up <- enrichGO(gene = up_entrez, OrgDb = org.Hs.eg.db, ont = "BP", pAdjustMethod = "BH", readable = TRUE)
+go_bp_up <- enrichGO(gene = up_entrez, OrgDb = org.Hs.eg.db, ont = "BP", pAdjustMethod = "BH", readable = FALSE)
 cat("  - GO BP completed in:", round(difftime(Sys.time(), go_start, units="secs"), 2), "seconds\n\n")
 
 # ============================================
@@ -83,7 +83,7 @@ if (!is.null(go_bp_up) && nrow(go_bp_up@result[go_bp_up@result$p.adjust < 0.05,]
 # DOWNREGULATED GENES
 # ============================================
 cat("Step 6 [", format(Sys.time(), "%H:%M:%S"), "]: Running GO BP Enrichment (Downregulated)...\n")
-go_bp_down <- enrichGO(gene = down_entrez, OrgDb = org.Hs.eg.db, ont = "BP", pAdjustMethod = "BH", readable = TRUE)
+go_bp_down <- enrichGO(gene = down_entrez, OrgDb = org.Hs.eg.db, ont = "BP", pAdjustMethod = "BH", readable = FALSE)
 
 if (!is.null(go_bp_down) && nrow(go_bp_down@result[go_bp_down@result$p.adjust < 0.05,]) > 0) {
   p2 <- barplot(go_bp_down, showCategory = 15, title = "GO BP - Downregulated in ALS")
